@@ -45,13 +45,13 @@
             transform: translateX(0); /* Visible when active */
         }
 
-        /* Subtle hover effect for cards */
+        /* Subtle hover effect for cards - enhanced with subtle rotation */
         .card-hover-effect {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .card-hover-effect:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px) rotateZ(1deg); /* Lift and slight rotate */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
         }
 
         /* Modal specific styles */
@@ -95,6 +95,121 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        /* Hero Section Specific Styles and Animations */
+        #hero {
+            /* More vibrant and dynamic radial gradient */
+            background: radial-gradient(circle at top left, #6366f1, #a855f7, #ec4899);
+            position: relative;
+            overflow: hidden; /* Ensure animations stay within bounds */
+            /* Initial background size for panning effect */
+            background-size: 200% 200%;
+            animation: background-pan 15s linear infinite alternate; /* Slow, continuous pan */
+        }
+
+        /* Keyframe for background panning */
+        @keyframes background-pan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Subtle overlay pattern for texture */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* SVG for repeating geometric pattern - more distinct but subtle */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 0L50 100L100 0Z" fill="%23ffffff" opacity="0.05"/><path d="M100 100L50 0L0 100Z" fill="%23ffffff" opacity="0.05"/></svg>') repeat;
+            opacity: 0.4; /* Slightly more visible */
+            z-index: 1; /* Ensure pattern is above gradient but below content */
+        }
+
+        /* Keyframe for fade-in and slide-up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Keyframe for subtle pulse effect */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Apply animations with delays for sequential appearance */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start invisible */
+            position: relative; /* Needed for transform */
+        }
+
+        .animate-pulse-subtle {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* Specific delays for elements in Hero Section */
+        #hero .md\:w-1\/3 img { /* Profile picture */
+            animation-delay: 0.2s;
+        }
+        #hero h1 {
+            animation-delay: 0.4s;
+        }
+        #hero h1 .text-yellow-300 { /* Inner span for pulse */
+             animation-delay: 0.6s; /* Can apply pulse to specific part */
+        }
+        #hero p:nth-of-type(1) { /* First paragraph */
+            animation-delay: 0.6s;
+        }
+        #hero p:nth-of-type(2) { /* Second paragraph */
+            animation-delay: 0.8s;
+        }
+        #hero .flex.justify-center.md\:justify-start.space-x-4 a:nth-of-type(1) { /* First button */
+            animation-delay: 1s;
+        }
+        #hero .flex.justify-center.md\:justify-start.space-x-4 a:nth-of-type(2) { /* Second button */
+            animation-delay: 1.2s;
+        }
+
+        /* Angled Section Dividers */
+        .angled-divider-bottom {
+            position: relative;
+            width: 100%;
+            height: 50px; /* Adjust height for desired angle */
+            background-color: #f0f2f5; /* Matches body background */
+            transform: skewY(-2deg); /* Angle the bottom edge */
+            transform-origin: top left;
+            margin-top: -25px; /* Overlap with section above */
+            z-index: 20; /* Ensure it's above the section it divides */
+            box-shadow: 0 -5px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+        .angled-divider-top {
+            position: relative;
+            width: 100%;
+            height: 50px; /* Adjust height for desired angle */
+            background-color: #f0f2f5; /* Matches body background */
+            transform: skewY(2deg); /* Angle the top edge */
+            transform-origin: bottom left;
+            margin-bottom: -25px; /* Overlap with section below */
+            z-index: 20;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+        /* Adjusting background color for the section after the angled divider */
+        #about {
+            background-color: #ffffff; /* Explicitly set for contrast */
+        }
+        #skills {
+            background-color: #f0f2f5; /* Explicitly set for contrast */
         }
     </style>
 </head>
@@ -140,26 +255,29 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 px-4 rounded-b-xl shadow-lg">
+    <section id="hero" class="py-20 px-4 rounded-b-xl shadow-lg">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left">
-            <div class="md:w-1/3 mb-8 md:mb-0 md:mr-12">
+            <div class="md:w-1/3 mb-8 md:mb-0 md:mr-12 animate-fade-in-up">
                 <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-48 h-48 mx-auto md:mx-0 border-4 border-white shadow-lg">
             </div>
             <div class="md:w-2/3">
-                <h1 class="text-5xl font-extrabold mb-4 leading-tight">Hi, I'm <span class="text-yellow-300">Rebone Motswana</span></h1>
-                <p class="text-2xl font-light mb-6">A Motivated <span class="font-semibold">BSc Information Technology Student</span> ready to make an impact.</p>
-                <p class="text-lg mb-8 max-w-2xl mx-auto md:mx-0">
+                <h1 class="text-5xl font-extrabold mb-4 leading-tight text-white animate-fade-in-up">Hi, I'm <span class="text-yellow-300 animate-pulse-subtle">Rebone Motswana</span></h1>
+                <p class="text-2xl font-light mb-6 text-white animate-fade-in-up">A Motivated <span class="font-semibold">BSc Information Technology Student</span> ready to make an impact.</p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto md:mx-0 text-white animate-fade-in-up">
                     Motivated and detail-oriented final-year BSc Information Technology student with a strong foundation in programming and problem-solving.
                     Proficient in Python, C#, C++ and Java, with hands-on experience solving coding challenges and a keen interest in AI chatbot development.
                 </p>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300 shadow-md card-hover-effect">Get in Touch</a>
+                    <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300 shadow-md card-hover-effect animate-fade-in-up">Get in Touch</a>
                     <!-- CV PDF link updated -->
-                    <a href="https://github.com/bongo87/bongo87.github.io/blob/main/Rebone_Motswana_CV.pdf" target="_blank" class="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300 shadow-md card-hover-effect">Download CV</a>
+                    <a href="https://github.com/bongo87/bongo87.github.io/blob/main/Rebone_Motswana_CV.pdf" target="_blank" class="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300 shadow-md card-hover-effect animate-fade-in-up">Download CV</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Angled Divider after Hero -->
+    <div class="angled-divider-bottom bg-white"></div>
 
     <!-- About Me Section -->
     <section id="about" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
@@ -188,6 +306,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Angled Divider after About Me -->
+    <div class="angled-divider-top bg-gray-100"></div>
 
     <!-- Skills Section -->
     <section id="skills" class="py-16 px-4 bg-gray-100 rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
