@@ -406,6 +406,23 @@
                         </button>
                     </div>
                 </div>
+                <!-- Project: Java Shuffle Word Game -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                    <img src="https://placehold.co/400x250/cccccc/333333?text=Java+Game" alt="Java Shuffle Word Game Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                    <h3 class="text-2xl font-bold text-blue-600 mb-2">Java Shuffle Word Game</h3>
+                    <p id="java-game-description" class="text-gray-700 mb-4">A console-based word guessing game developed in Java. This project was built for a Data Structures module, showcasing a custom `ArrayList` implementation, character wrapping, and algorithms for word shuffling and verification. It highlights practical application of core data structures concepts.</p>
+                    <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
+                        <li>**Tech Stack:** Java, Custom `MyArrayList` (Data Structure), Console I/O.</li>
+                        <li>**Role:** Personal project for Data Structures module.</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-4">
+                        <!-- Assuming the repo name Java-ShuffleWordGame -->
+                        <a href="https://github.com/bongo87/Java-ShuffleWordGame" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
+                        <button class="project-explainer-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
+                            ✨ Explain Project
+                        </button>
+                    </div>
+                </div>
                 <!-- Project: Basic Interactive Websites -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <img src="https://placehold.co/400x250/cccccc/333333?text=Websites" alt="Interactive Websites Thumbnail" class="rounded-lg mb-4 w-full h-auto">
@@ -611,7 +628,6 @@
                 } catch (error) {
                     console.error(`Attempt ${i + 1} failed: Error during fetch or processing:`, error);
                     if (i < retries - 1) {
-                        console.warn(`Retrying in ${delay / 1000} seconds...`);
                         await new Promise(res => setTimeout(res, delay));
                         delay *= 2;
                     } else {
