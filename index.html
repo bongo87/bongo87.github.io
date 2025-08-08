@@ -14,6 +14,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile menu */
         }
         /* Smooth scroll for navigation */
         html {
@@ -34,6 +35,67 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        /* Custom styles for hamburger menu transition */
+        .nav-menu {
+            transition: transform 0.3s ease-out;
+            transform: translateX(100%); /* Hidden by default on mobile */
+        }
+        .nav-menu.active {
+            transform: translateX(0); /* Visible when active */
+        }
+
+        /* Subtle hover effect for cards */
+        .card-hover-effect {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal specific styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -42,13 +104,38 @@
     <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-blue-600">Rebone Motswana</a>
-            <div class="flex space-x-6">
+            
+            <!-- Hamburger Menu Icon (visible on small screens) -->
+            <div class="md:hidden">
+                <button id="hamburger-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links (visible on medium and larger screens) -->
+            <div class="hidden md:flex space-x-6">
                 <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
                 <a href="#skills" class="text-gray-700 hover:text-blue-600 transition duration-300">Skills</a>
                 <a href="#education" class="text-gray-700 hover:text-blue-600 transition duration-300">Education</a>
                 <a href="#projects" class="text-gray-700 hover:text-blue-600 transition duration-300">Projects</a>
                 <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
             </div>
+        </div>
+
+        <!-- Mobile Navigation Menu (hidden by default, slides in) -->
+        <div id="mobile-menu" class="nav-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg p-6 z-40 md:hidden">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <ul class="flex flex-col space-y-4 text-lg">
+                <li><a href="#about" class="block text-gray-700 hover:text-blue-600 transition duration-300 py-2" onclick="toggleMobileMenu()">About</a></li>
+                <li><a href="#skills" class="block text-gray-700 hover:text-blue-600 transition duration-300 py-2" onclick="toggleMobileMenu()">Skills</a></li>
+                <li><a href="#education" class="block text-gray-700 hover:text-blue-600 transition duration-300 py-2" onclick="toggleMobileMenu()">Education</a></li>
+                <li><a href="#projects" class="block text-gray-700 hover:text-blue-600 transition duration-300 py-2" onclick="toggleMobileMenu()">Projects</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:text-blue-600 transition duration-300 py-2" onclick="toggleMobileMenu()">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -66,9 +153,9 @@
                     Proficient in Python, C#, C++ and Java, with hands-on experience solving coding challenges and a keen interest in AI chatbot development.
                 </p>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300 shadow-md">Get in Touch</a>
+                    <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300 shadow-md card-hover-effect">Get in Touch</a>
                     <!-- CV PDF link updated -->
-                    <a href="https://github.com/bongo87/bongo87.github.io/blob/main/Rebone_Motswana_CV.pdf" target="_blank" class="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300 shadow-md">Download CV</a>
+                    <a href="https://github.com/bongo87/bongo87.github.io/blob/main/Rebone_Motswana_CV.pdf" target="_blank" class="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300 shadow-md card-hover-effect">Download CV</a>
                 </div>
             </div>
         </div>
@@ -80,7 +167,7 @@
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:items-start">
                 <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0">
-                    <p class="text-lg leading-relaxed mb-4">
+                    <p id="about-text-content" class="text-lg leading-relaxed mb-4">
                         As a final-year BSc Information Technology student, I am a fast learner with excellent communication skills, eager to contribute to innovative, remote technology projects.
                         My foundation is strong in programming and problem-solving, with practical experience in various coding challenges.
                     </p>
@@ -91,9 +178,12 @@
                     <p class="text-lg leading-relaxed">
                         I am committed, dependable, and results-oriented, quick to adapt, and open to learning new technologies. I possess strong attention to detail and problem-solving abilities.
                     </p>
+                    <button id="summarizeProfileBtn" class="mt-6 bg-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300 shadow-md card-hover-effect">
+                        ✨ Summarize My Profile
+                    </button>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.46%20(1).jpeg?raw=true" alt="About Me Image" class="rounded-lg shadow-lg w-full h-auto">
+                    <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.46%20(1).jpeg?raw=true" alt="About Me Image" class="rounded-lg shadow-lg w-full h-auto card-hover-effect">
                 </div>
             </div>
         </div>
@@ -105,18 +195,18 @@
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Technical Skills -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-code mr-2"></i>Technical Skills</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2">
+                    <ul id="technical-skills-content" class="list-disc list-inside text-lg space-y-2">
                         <li>Languages: Python, Java, HTML, C#, SQL, C++</li>
                         <li>Tools & Technologies: Git, VS Code, React (basic), Node.js (introductory level)</li>
                         <li>Problem Solving: LeetCode, HackerRank-style challenges</li>
                     </ul>
                 </div>
                 <!-- Soft Skills -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-users mr-2"></i>Soft Skills</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2">
+                    <ul id="soft-skills-content" class="list-disc list-inside text-lg space-y-2">
                         <li>Attention to detail</li>
                         <li>Time management</li>
                         <li>Communication</li>
@@ -125,9 +215,9 @@
                     </ul>
                 </div>
                 <!-- Core Competencies -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-lightbulb mr-2"></i>Core Competencies</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2">
+                    <ul id="core-competencies-content" class="list-disc list-inside text-lg space-y-2">
                         <li>Fluent in English and Setswana</li>
                         <li>Committed, dependable, and results-oriented</li>
                         <li>Quick to adapt and open to learning new technologies</li>
@@ -144,7 +234,7 @@
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Education</h2>
             <div class="space-y-8">
                 <!-- North-West University -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-start">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex flex-col md:flex-row items-start">
                     <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
                         <p class="font-semibold text-lg">Expected Completion: 2025</p>
                         <p class="text-md">Mafikeng, South Africa</p>
@@ -157,7 +247,7 @@
                     </div>
                 </div>
                 <!-- Letsatsing Science Secondary School -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-start">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex flex-col md:flex-row items-start">
                     <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
                         <p class="font-semibold text-lg">2021</p>
                         <p class="text-md">South Africa</p>
@@ -178,44 +268,45 @@
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Projects & Activities</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project: Clinical Decision Support System (CDSS) -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <img src="https://placehold.co/400x250/cccccc/333333?text=CDSS" alt="CDSS Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
                     <h3 class="text-2xl font-bold text-blue-600 mb-2">Clinical Decision Support System (CDSS)</h3>
-                    <p class="text-gray-700 mb-4">A web-based healthcare application developed in C# with a MySQL database backend. Designed to enhance the quality and efficiency of healthcare delivery by assisting medical professionals with accurate, timely, and data-driven clinical decisions.</p>
+                    <p id="cdss-project-description" class="text-gray-700 mb-4">A web-based healthcare application developed in C# with a MySQL database backend. Designed to enhance the quality and efficiency of healthcare delivery by assisting medical professionals with accurate, timely, and data-driven clinical decisions.</p>
                     <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
                         <li>**Features:** Patient/Doctor Management, Symptom Tracking, Diagnosis Assistance, Treatment Management, Drug Inventory, Appointment Scheduling.</li>
                         <li>**Tech Stack:** C# (ASP.NET), MySQL.</li>
                         <li>**Role:** Contributed to the system design and implementation of the actual system.</li>
                         <li>**Collaboration:** Developed as a collaborative group project for a university course.</li>
                     </ul>
-                    <div class="flex justify-between items-center">
-                        <!-- Updated with your GitHub account for CDSS project -->
-                        <a href="https://github.com/bongo87/CDSS" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
-                        <!-- If you have a live demo, link it here -->
-                        <!-- <a href="#" target="_blank" class="text-blue-500 hover:underline">Live Demo <i class="fas fa-external-link-alt ml-1"></i></a> -->
+                    <div class="flex justify-between items-center mt-4">
+                        <a href="https://github.com/poundcake010101/CDSS" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
+                        <button class="project-explainer-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
+                            ✨ Explain Project
+                        </button>
                     </div>
                 </div>
                 <!-- Project: Basic Interactive Websites -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <img src="https://placehold.co/400x250/cccccc/333333?text=Websites" alt="Interactive Websites Thumbnail" class="rounded-lg mb-4 w-full h-auto">
                     <h3 class="text-2xl font-bold text-blue-600 mb-2">Basic Interactive Websites</h3>
-                    <p class="text-gray-700 mb-4">Personal projects where I built interactive websites using HTML, C#, and JavaScript to practice web development fundamentals.</p>
-                    <div class="flex justify-between items-center">
-                        <!-- Updated with your GitHub profile link -->
+                    <p id="websites-project-description" class="text-gray-700 mb-4">Personal projects where I built interactive websites using HTML, C#, and JavaScript to practice web development fundamentals.</p>
+                    <div class="flex justify-between items-center mt-4">
                         <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
-                        <!-- If you have a live demo, link it here -->
-                        <!-- <a href="#" target="_blank" class="text-blue-500 hover:underline">Live Demo <i class="fas fa-external-link-alt ml-1"></i></a> -->
+                        <button class="project-explainer-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
+                            ✨ Explain Project
+                        </button>
                     </div>
                 </div>
                 <!-- Project: Algorithm Problems -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                     <img src="https://placehold.co/400x250/cccccc/333333?text=Algorithms" alt="Algorithm Problems Thumbnail" class="rounded-lg mb-4 w-full h-auto">
                     <h3 class="text-2xl font-bold text-blue-600 mb-2">Algorithm Problem Solving</h3>
-                    <p class="text-gray-700 mb-4">Solved various algorithm problems using Python on platforms like HackerRank, enhancing problem-solving and coding skills.</p>
-                    <div class="flex justify-between items-center">
-                        <!-- Updated with your GitHub profile link -->
+                    <p id="algorithms-project-description" class="text-gray-700 mb-4">Solved various algorithm problems using Python on platforms like HackerRank, enhancing problem-solving and coding skills.</p>
+                    <div class="flex justify-between items-center mt-4">
                         <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
-                        <!-- If you have a HackerRank profile link, you can add it here -->
+                        <button class="project-explainer-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
+                            ✨ Explain Project
+                        </button>
                     </div>
                 </div>
             </div>
@@ -283,6 +374,190 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal for LLM Generated Content -->
+    <div id="llmModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalBtn">&times;</span>
+            <h3 id="modalTitle" class="text-2xl font-bold mb-4 text-blue-700"></h3>
+            <div id="modalContent" class="text-lg text-gray-800 leading-relaxed">
+                <!-- LLM generated content will be displayed here -->
+            </div>
+            <div id="modalLoading" class="text-center mt-4 text-blue-600 font-semibold hidden">
+                <i class="fas fa-spinner fa-spin mr-2"></i>Generating...
+            </div>
+            <div id="modalError" class="text-center mt-4 text-red-600 font-semibold hidden">
+                <i class="fas fa-exclamation-triangle mr-2"></i>Error generating content. Please try again.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Hamburger Menu
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            // Prevent scrolling when menu is open
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflowY = 'hidden';
+            } else {
+                document.body.style.overflowY = 'auto';
+            }
+        }
+
+        hamburgerButton.addEventListener('click', toggleMobileMenu);
+        closeMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking outside on mobile (optional, but good UX)
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !hamburgerButton.contains(event.target) && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+
+        // --- Gemini API Integration ---
+
+        // Modal Elements
+        const llmModal = document.getElementById('llmModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        const modalLoading = document.getElementById('modalLoading');
+        const modalError = document.getElementById('modalError');
+
+        // Function to open the modal
+        function openModal(title) {
+            modalTitle.textContent = title;
+            modalContent.innerHTML = ''; // Clear previous content
+            modalLoading.classList.remove('hidden'); // Show loading
+            modalError.classList.add('hidden'); // Hide error
+            llmModal.style.display = 'flex'; // Show modal
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            llmModal.style.display = 'none'; // Hide modal
+            document.body.style.overflow = 'auto'; // Re-enable background scroll
+            modalContent.innerHTML = ''; // Clear content
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', function(event) {
+            if (event.target == llmModal) {
+                closeModal();
+            }
+        });
+
+        // Function to call Gemini API with exponential backoff
+        async function callGeminiAPI(prompt, retries = 3, delay = 1000) {
+            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+            const apiKey = ""; // Canvas will provide this at runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error(`API Error: ${response.status} - ${errorData.error.message}`);
+                        if (response.status === 429 && i < retries - 1) { // Too Many Requests
+                            await new Promise(res => setTimeout(res, delay));
+                            delay *= 2; // Exponential backoff
+                            continue;
+                        }
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        return result.candidates[0].content.parts[0].text;
+                    } else {
+                        throw new Error("Unexpected API response structure or no content.");
+                    }
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    if (i < retries - 1) {
+                        await new Promise(res => setTimeout(res, delay));
+                        delay *= 2;
+                    } else {
+                        throw error; // Re-throw after last retry
+                    }
+                }
+            }
+            throw new Error("Failed to call Gemini API after multiple retries.");
+        }
+
+        // --- Profile Summarizer Feature ---
+        const summarizeProfileBtn = document.getElementById('summarizeProfileBtn');
+        const aboutTextContent = document.getElementById('about-text-content');
+        const technicalSkillsContent = document.getElementById('technical-skills-content');
+        const softSkillsContent = document.getElementById('soft-skills-content');
+        const coreCompetenciesContent = document.getElementById('core-competencies-content');
+
+        summarizeProfileBtn.addEventListener('click', async () => {
+            openModal('✨ Profile Summary');
+            try {
+                const profileText = `
+                    Professional Summary: ${aboutTextContent.textContent.trim()}
+                    Technical Skills: ${technicalSkillsContent.textContent.trim()}
+                    Soft Skills: ${softSkillsContent.textContent.trim()}
+                    Core Competencies: ${coreCompetenciesContent.textContent.trim()}
+                `;
+                const prompt = `Given the following professional profile details, generate a concise and impactful summary (around 100-150 words) that highlights key strengths and career aspirations. Focus on making it suitable for a quick overview for a recruiter or hiring manager:\n\n${profileText}`;
+                
+                const summary = await callGeminiAPI(prompt);
+                modalContent.innerHTML = `<p>${summary}</p>`;
+                modalLoading.classList.add('hidden');
+            } catch (error) {
+                modalLoading.classList.add('hidden');
+                modalError.classList.remove('hidden');
+                console.error("Error summarizing profile:", error);
+            }
+        });
+
+        // --- Project Explainer Feature ---
+        const projectExplainerBtns = document.querySelectorAll('.project-explainer-btn');
+
+        projectExplainerBtns.forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const projectCard = event.target.closest('.bg-white.p-6');
+                const projectTitle = projectCard.querySelector('h3').textContent;
+                const projectDescription = projectCard.querySelector('p').textContent;
+                const projectFeatures = Array.from(projectCard.querySelectorAll('ul li')).map(li => li.textContent).join('\n');
+                
+                openModal(`✨ Explaining: ${projectTitle}`);
+
+                try {
+                    const projectDetails = `
+                        Project Title: ${projectTitle}
+                        Description: ${projectDescription}
+                        Key Features/Details: ${projectFeatures}
+                    `;
+                    const prompt = `Provide an insightful and slightly more detailed explanation of the following project (around 150-200 words). Focus on its significance, the technologies used, and the impact it aims to achieve. Make it engaging for someone reviewing a portfolio:\n\n${projectDetails}`;
+                    
+                    const explanation = await callGeminiAPI(prompt);
+                    modalContent.innerHTML = `<p>${explanation}</p>`;
+                    modalLoading.classList.add('hidden');
+                } catch (error) {
+                    modalLoading.classList.add('hidden');
+                    modalError.classList.remove('hidden');
+                    console.error("Error explaining project:", error);
+                }
+            });
+        });
+
+    </script>
 
 </body>
 </html>
