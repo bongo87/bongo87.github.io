@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebone Motswana - Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom font import for Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        /* Smooth scroll for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Rebone Motswana</a>
+            <div class="flex space-x-6">
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-blue-600 transition duration-300">Skills</a>
+                <a href="#education" class="text-gray-700 hover:text-blue-600 transition duration-300">Education</a>
+                <a href="#projects" class="text-gray-700 hover:text-blue-600 transition duration-300">Projects</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 px-4 rounded-b-xl shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left">
+            <div class="md:w-1/3 mb-8 md:mb-0 md:mr-12">
+                <img src="https://placehold.co/200x200/cccccc/ffffff?text=Rebone" alt="Profile Picture" class="rounded-full w-48 h-48 mx-auto md:mx-0 border-4 border-white shadow-lg">
+            </div>
+            <div class="md:w-2/3">
+                <h1 class="text-5xl font-extrabold mb-4 leading-tight">Hi, I'm <span class="text-yellow-300">Rebone Motswana</span></h1>
+                <p class="text-2xl font-light mb-6">A Motivated <span class="font-semibold">BSc Information Technology Student</span> ready to make an impact.</p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto md:mx-0">
+                    Motivated and detail-oriented final-year BSc Information Technology student with a strong foundation in programming and problem-solving.
+                    Proficient in Python, C#, C++ and Java, with hands-on experience solving coding challenges and a keen interest in AI chatbot development.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300 shadow-md">Get in Touch</a>
+                    <!-- You will need to host your CV PDF and link it here -->
+                    <a href="your_cv.pdf" target="_blank" class="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300 shadow-md">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start">
+                <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+                    <p class="text-lg leading-relaxed mb-4">
+                        As a final-year BSc Information Technology student, I am a fast learner with excellent communication skills, eager to contribute to innovative, remote technology projects.
+                        My foundation is strong in programming and problem-solving, with practical experience in various coding challenges.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-4">
+                        My career objective is to gain practical experience in real-world software development, particularly by contributing to AI chatbot projects.
+                        I aim to sharpen my coding and evaluation skills while working remotely and independently in a fast-paced, innovative environment.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        I am committed, dependable, and results-oriented, quick to adapt, and open to learning new technologies. I possess strong attention to detail and problem-solving abilities.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/500x300/e0e0e0/333333?text=About+Image" alt="About Me Image" class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-4 bg-gray-100 rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Technical Skills -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-code mr-2"></i>Technical Skills</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Languages: Python, Java, HTML, C#, SQL, C++</li>
+                        <li>Tools & Technologies: Git, VS Code, React (basic), Node.js (introductory level)</li>
+                        <li>Problem Solving: LeetCode, HackerRank-style challenges</li>
+                    </ul>
+                </div>
+                <!-- Soft Skills -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-users mr-2"></i>Soft Skills</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Attention to detail</li>
+                        <li>Time management</li>
+                        <li>Communication</li>
+                        <li>Teamwork</li>
+                        <li>Hardworker</li>
+                    </ul>
+                </div>
+                <!-- Core Competencies -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-lightbulb mr-2"></i>Core Competencies</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Fluent in English and Setswana</li>
+                        <li>Committed, dependable, and results-oriented</li>
+                        <li>Quick to adapt and open to learning new technologies</li>
+                        <li>Strong attention to detail and problem-solving ability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Education</h2>
+            <div class="space-y-8">
+                <!-- North-West University -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-start">
+                    <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
+                        <p class="font-semibold text-lg">Expected Completion: 2025</p>
+                        <p class="text-md">Mafikeng, South Africa</p>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-2xl font-bold text-blue-600">Bachelor of Science in Information Technology</h3>
+                        <p class="text-xl font-semibold text-gray-700 mb-2">North-West University</p>
+                        <p class="text-lg">Currently in Final Year.</p>
+                        <p class="text-lg">Coursework Highlights: Algorithms and data structures, software development, web programming.</p>
+                    </div>
+                </div>
+                <!-- Letsatsing Science Secondary School -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-start">
+                    <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
+                        <p class="font-semibold text-lg">2021</p>
+                        <p class="text-md">South Africa</p>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-2xl font-bold text-blue-600">National Senior Certificate</h3>
+                        <p class="text-xl font-semibold text-gray-700 mb-2">Letsatsing Science Secondary School</p>
+                        <p class="text-lg">Subjects: English, Setswana, Mathematics, Physical Science, Life Science, Geography, Life Orientation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4 bg-gray-100 rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Projects & Activities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project: Clinical Decision Support System (CDSS) -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/400x250/cccccc/333333?text=CDSS" alt="CDSS Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                    <h3 class="text-2xl font-bold text-blue-600 mb-2">Clinical Decision Support System (CDSS)</h3>
+                    <p class="text-gray-700 mb-4">A web-based healthcare application developed in C# with a MySQL database backend. Designed to enhance the quality and efficiency of healthcare delivery by assisting medical professionals with accurate, timely, and data-driven clinical decisions.</p>
+                    <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
+                        <li>**Features:** Patient/Doctor Management, Symptom Tracking, Diagnosis Assistance, Treatment Management, Drug Inventory, Appointment Scheduling.</li>
+                        <li>**Tech Stack:** C# (ASP.NET), MySQL.</li>
+                        <li>**Role:** Contributed to the system design and implementation of the actual system.</li>
+                        <li>**Collaboration:** Developed as a collaborative group project for a university course.</li>
+                    </ul>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/poundcake010101/CDSS" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
+                        <!-- If you have a live demo, link it here -->
+                        <!-- <a href="#" target="_blank" class="text-blue-500 hover:underline">Live Demo <i class="fas fa-external-link-alt ml-1"></i></a> -->
+                    </div>
+                </div>
+                <!-- Project: Basic Interactive Websites -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/400x250/cccccc/333333?text=Websites" alt="Interactive Websites Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                    <h3 class="text-2xl font-bold text-blue-600 mb-2">Basic Interactive Websites</h3>
+                    <p class="text-gray-700 mb-4">Personal projects where I built interactive websites using HTML, C#, and JavaScript to practice web development fundamentals.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/yourusername/interactive-websites" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
+                        <!-- If you have a live demo, link it here -->
+                        <!-- <a href="#" target="_blank" class="text-blue-500 hover:underline">Live Demo <i class="fas fa-external-link-alt ml-1"></i></a> -->
+                    </div>
+                </div>
+                <!-- Project: Algorithm Problems -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/400x250/cccccc/333333?text=Algorithms" alt="Algorithm Problems Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                    <h3 class="text-2xl font-bold text-blue-600 mb-2">Algorithm Problem Solving</h3>
+                    <p class="text-gray-700 mb-4">Solved various algorithm problems using Python on platforms like HackerRank, enhancing problem-solving and coding skills.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/yourusername/algorithm-solutions" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
+                        <!-- If you have a HackerRank profile link, you can add it here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-10 text-blue-700">Get in Touch</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">
+                I'm always open to new opportunities and collaborations. Feel free to reach out!
+            </p>
+            <div class="flex justify-center space-x-6 mb-10">
+                <a href="mailto:rebonemotswana7@gmail.com" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <!-- Replace with your actual LinkedIn profile URL -->
+                <a href="https://linkedin.com/in/yourlinkedinprofile" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <!-- Replace with your actual GitHub profile URL -->
+                <a href="https://github.com/yourgithubusername" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <!-- Phone number link -->
+                <a href="tel:+27818985610" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+
+            <!-- Simple Contact Form -->
+            <div class="max-w-xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-6 text-blue-600">Send a Message</h3>
+                <!-- Formspree.io endpoint added here -->
+                <form id="contactForm" action="https://formspree.io/f/movlpynl" method="POST" class="space-y-4">
+                    <div class="mb-4">
+                        <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" required>
+                    </div>
+                    <div class="mb-6">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" required></textarea>
+                    </div>
+                    <button type="submit" id="submitButton" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 shadow-md">Send Message</button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">Note: This form uses Formspree.io to send messages. A Formspree account and endpoint are required.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Rebone Motswana. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <!-- Replace with your actual LinkedIn profile URL -->
+                <a href="https://linkedin.com/in/yourlinkedinprofile" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Replace with your actual GitHub profile URL -->
+                <a href="https://github.com/yourgithubusername" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:rebonemotswana7@gmail.com" class="text-gray-400 hover:text-white transition duration-300" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
