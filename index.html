@@ -1,464 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebone Motswana - Professional Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Custom font import for Inter */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
-            overflow-x: hidden;
-        }
-        /* Smooth scroll for navigation */
-        html {
-            scroll-behavior: smooth;
-        }
+\documentclass[11pt, a4paper, sans]{moderncv}
 
-        /* --- Page 1 (Welcome Screen) Specific Styles (Mimicking Canva Screenshot) --- */
-        #page1 {
-            background-color: #000000; /* Black background */
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 20px;
-        }
-        .accent-circle-1 {
-            position: absolute;
-            top: -5%;
-            left: -5%;
-            width: 300px;
-            height: 300px;
-            background-color: #a3e635; /* Lime-300 */
-            border-radius: 50%;
-            opacity: 0.15;
-            transform: translate(-50%, -50%);
-        }
-        .accent-circle-2 {
-            position: absolute;
-            top: 5%;
-            right: 5%;
-            width: 150px;
-            height: 150px;
-            background-color: #a3e635; /* Lime-300 */
-            border-radius: 50%;
-            opacity: 0.1;
-        }
-        .welcome-card {
-            background-color: #111827; /* Darker background for the main card area */
-            max-width: 1000px;
-            width: 100%;
-            min-height: 600px;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-            z-index: 10;
-        }
+% moderncv options
+\moderncvstyle{casual}
+\moderncvcolor{blue}
 
-        /* Responsive grid layout for the welcome card */
-        .welcome-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-        @media (min-width: 768px) {
-            .welcome-grid {
-                grid-template-columns: 1fr 2fr; /* Image on left, text on right */
-            }
-        }
+% Adjust geometry settings (moderncv handles most, but we can set overall margins)
+\usepackage[scale=0.8]{geometry}
 
-        /* Profile Image container for the welcome screen */
-        .profile-img-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px 20px 0 0;
-            background-color: #1f2937;
-        }
-        @media (min-width: 768px) {
-            .profile-img-container {
-                border-radius: 20px 0 0 20px;
-            }
-        }
+% Personal Information
+\name{Ava}{Chen}
+\title{Senior Data Scientist}
+\address{123 Tech Drive}{San Francisco, CA 94107}
+\phone{(555) 123-4567}
+\email{ava.chen@email.com}
+\social[linkedin]{ava-chen-data}
+\social[github]{AvaDataScience}
+\homepage{www.avachen-datascience.com}
 
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
-            opacity: 0.9;
-        }
+% --- The Babel and Font Setup Block (Required for Noto, but moderncv handles most of this itself when using LuaLaTeX) ---
+% Using LuaLaTeX with moderncv defaults to robust font handling. We keep the preamble clean.
+\usepackage[english, main=english]{babel}
+\usepackage{etoolbox}
+\usepackage{hyperref}
 
-        /* Animation for the "View Full CV" button */
-        .cv-button-pulse {
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(163, 230, 53, 0.7); }
-            50% { transform: scale(1.03); box-shadow: 0 0 10px rgba(163, 230, 53, 1); }
-        }
+% Document body starts here
+\begin{document}
 
-        /* --- Page 2 (Detailed CV) Specific Styles --- */
-        #page2 {
-            background-color: #f0f2f5;
-            padding-top: 20px;
-        }
-        /* Style for the professional sections */
-        .cv-section {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 3rem;
-            padding: 2rem;
-        }
-        .cv-section h2 {
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-        .card-hover-effect {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
+% The \makecvtitle command sets up the header and defines key commands like \cvsection
+\makecvtitle
 
-        .section-header {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
-            color: #1d4ed8;
-            margin-bottom: 2.5rem;
-        }
-    </style>
-</head>
-<body>
+\cvsection{Summary}
+\cvlistitem{Highly accomplished **Senior Data Scientist** with 8+ years of experience in developing and deploying large-scale predictive models, machine learning pipelines, and advanced statistical analysis. Proven ability to translate complex business requirements into actionable data science solutions that drive revenue and operational efficiency.}
 
-    <!-- --- PAGE 1: WELCOME SCREEN (Introduction) --- -->
-    <div id="page1">
-        <div class="accent-circle-1"></div>
-        <div class="accent-circle-2"></div>
+\cvsection{Experience}
 
-        <div class="welcome-card">
-            <div class="welcome-grid">
-                <!-- Image Side -->
-                <div class="profile-img-container h-64 md:h-full">
-                     <!-- Using the existing image URL -->
-                    <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Rebone Motswana Profile">
-                </div>
+\cventry{2019--Present}{Senior Data Scientist}{Tech Innovators Inc.}{San Francisco, CA}{}{
+  \begin{itemize}
+    \item Developed and deployed a real-time churn prediction model (XGBoost) that improved customer retention by **15\%**, resulting in \$5M in annual savings.
+    \item Designed and managed end-to-end ML production pipelines using **Kubeflow** and **Docker**, reducing model retraining time from 6 hours to 30 minutes.
+    \item Led a team of 3 data scientists, mentoring them in best practices for **A/B testing**, code quality, and cloud deployment (**AWS SageMaker**).
+    \item Performed advanced time-series forecasting for inventory optimization, reducing overstocking waste by 22\%.
+  \end{itemize}
+}
 
-                <!-- Text Side -->
-                <div class="p-8 md:p-12 text-white">
-                    <div class="mb-8">
-                        <h1 class="text-4xl md:text-5xl font-extrabold mb-2 leading-tight text-white">
-                            REBONE MOTSWANA
-                        </h1>
-                        <p class="inline-block px-3 py-1 text-lg font-semibold bg-lime-400 text-black rounded-full shadow-lg">
-                            BSc IT STUDENT
-                        </p>
-                    </div>
+\cventry{2017--2019}{Data Analyst}{Global Finance Group}{New York, NY}{}{
+  \begin{itemize}
+    \item Conducted market basket analysis and segmentation studies, identifying three new profitable customer segments.
+    \item Automated reporting processes using Python (**Pandas, NumPy**) and SQL, saving the business intelligence team 10 hours per week.
+    \item Created interactive data visualizations using **Tableau** to present key performance indicators (KPIs) to executive leadership.
+  \end{itemize}
+}
 
-                    <!-- Introduction / Summary Text -->
-                    <div class="mb-10 space-y-4">
-                        <h2 class="text-2xl font-bold text-lime-400">ABOUT ME</h2>
-                        <p class="text-gray-300 leading-relaxed text-lg">
-                            Motivated and detail-oriented **final-year BSc Information Technology student** with a strong foundation in programming and problem-solving.
-                        </p>
-                        <p class="text-gray-400 leading-relaxed text-base">
-                            I am proficient in Python, C#, C++, and Java, and actively seek to gain practical experience in software development, particularly contributing to **AI chatbot projects** and **data architecture**. I am committed, dependable, and results-oriented.
-                        </p>
-                    </div>
+\cvsection{Technical Skills}
+\cvlistdoubleitem
+  {**Programming:** Python (Scikit-learn, TensorFlow, PyTorch), R, SQL, Scala}
+  {**Cloud/DevOps:** AWS (S3, EC2, SageMaker), Docker, Kubeflow, Git}
+\cvlistdoubleitem
+  {**Databases:** PostgreSQL, MongoDB, Snowflake}
+  {**Tools/Methods:** A/B Testing, Time Series, NLP, ETL, Tableau, Power BI}
 
-                    <!-- Key Callout Boxes -->
-                    <div class="grid grid-cols-2 gap-4 mb-10">
-                        <div class="bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                            <p class="text-lime-400 font-bold text-xl">SKILLS</p>
-                            <p class="text-gray-300 text-sm">Python, C#, Java, Data Migration</p>
-                        </div>
-                        <div class="bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                            <p class="text-lime-400 font-bold text-xl">EDUCATION</p>
-                            <p class="text-gray-300 text-sm">BSc IT - Final Year (NWU)</p>
-                        </div>
-                    </div>
+\cvsection{Education}
+\cventry{2015--2017}{M.S. in Data Science}{Carnegie Mellon University}{Pittsburgh, PA}{GPA: 3.9/4.0}{}
+\cventry{2011--2015}{B.S. in Computer Science}{Stanford University}{Palo Alto, CA}{}{}
 
-                    <!-- Navigation Button -->
-                    <div class="text-center md:text-left">
-                        <button onclick="goToPage2()" class="bg-lime-400 text-black px-10 py-4 rounded-full font-extrabold text-lg hover:bg-lime-500 transition duration-300 shadow-xl cv-button-pulse">
-                            View Full CV <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+\cvsection{Key Projects}
+\cvitemwithcomment{NLP Sentiment Analyzer}{Built a neural network (LSTM) to classify sentiment from customer reviews with 92\% accuracy.}
+\cvitemwithcomment{Custom Recommendation Engine}{Developed a collaborative filtering algorithm that led to a 10\% increase in cross-sell rates.}
 
-    <!-- --- PAGE 2: DETAILED CV CONTENT (Hidden by default) --- -->
-    <div id="page2" class="container mx-auto px-4 lg:px-8 hidden">
-
-        <!-- Navigation Placeholder/Header on Page 2 -->
-        <header class="bg-white p-6 rounded-xl shadow-md sticky top-0 z-50 mb-8">
-            <h1 class="text-3xl font-bold text-blue-600">Rebone Motswana: Detailed CV</h1>
-            <p class="text-gray-600 mt-1">Software Development | Data Architecture | Emergency Response</p>
-        </header>
-
-        <!-- Skills Section -->
-        <section id="skills" class="cv-section">
-            <h2 class="section-header">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Technical Skills -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-inner card-hover-effect">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-600"><i class="fas fa-code mr-2"></i>Technical Skills</h3>
-                    <ul class="list-disc list-inside text-base space-y-2">
-                        <li>Languages: **Python**, **Java**, HTML, C#, SQL, C++</li>
-                        <li>Data & BI: **MongoDB** (NoSQL), MySQL, ETL Pipelines, Aggregation Framework</li>
-                        <li>Tools & Technologies: Git, VS Code, React (basic), Node.js (introductory level)</li>
-                        <li>Problem Solving: LeetCode, HackerRank-style challenges</li>
-                    </ul>
-                </div>
-                <!-- Soft Skills -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-inner card-hover-effect">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-600"><i class="fas fa-users mr-2"></i>Soft Skills</h3>
-                    <ul class="list-disc list-inside text-base space-y-2">
-                        <li>Attention to detail and problem-solving ability</li>
-                        <li>Time management and dependable work ethic</li>
-                        <li>Excellent Communication and Teamwork</li>
-                        <li>Hardworker and results-oriented</li>
-                    </ul>
-                </div>
-                <!-- Core Competencies -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-inner card-hover-effect">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-600"><i class="fas fa-lightbulb mr-2"></i>Core Competencies</h3>
-                    <ul class="list-disc list-inside text-base space-y-2">
-                        <li>Fluent in English and Setswana</li>
-                        <li>Committed and quick to adapt to new technologies</li>
-                        <li>Strong foundation in Algorithms and Data Structures</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="cv-section">
-            <h2 class="section-header">Education</h2>
-            <div class="space-y-8">
-                <!-- North-West University -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect flex flex-col md:flex-row items-start">
-                    <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
-                        <p class="font-semibold text-lg">Expected Completion: 2025</p>
-                        <p class="text-md">Mafikeng, South Africa</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-xl font-bold text-blue-600">Bachelor of Science in Information Technology</h3>
-                        <p class="text-lg font-semibold text-gray-700 mb-2">North-West University</p>
-                        <p class="text-md">Currently in Final Year. Focus on Software Development and Data Science fundamentals.</p>
-                    </div>
-                </div>
-                <!-- Letsatsing Science Secondary School -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect flex flex-col md:flex-row items-start">
-                    <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
-                        <p class="font-semibold text-lg">2021</p>
-                        <p class="text-md">South Africa</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-xl font-bold text-blue-600">National Senior Certificate</h3>
-                        <p class="text-lg font-semibold text-gray-700 mb-2">Letsatsing Science Secondary School</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section id="certifications" class="cv-section">
-            <h2 class="section-header">Certifications & Training</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Elementary Fire Fighting Course -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
-                    <h3 class="text-xl font-bold text-red-600 mb-2"><i class="fas fa-fire-extinguisher mr-2"></i> Elementary Fire Fighting Course</h3>
-                    <p class="text-md font-semibold text-gray-700 mb-2">Emfuleni Local Municipality / Fire & Rescue Training Centre</p>
-                    <ul class="list-disc list-inside text-sm text-gray-600">
-                        <li>Certified in fire prevention protocols and emergency evacuation procedures.</li>
-                        <li>Proficient in operation of various extinguishing equipment.</li>
-                    </ul>
-                </div>
-                <!-- First Aid Certification -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
-                    <h3 class="text-xl font-bold text-green-600 mb-2"><i class="fas fa-heartbeat mr-2"></i> First Aid Certification</h3>
-                    <p class="text-md font-semibold text-gray-700 mb-2">Emfuleni Local Municipality / Fire & Rescue Training Centre</p>
-                    <ul class="list-disc list-inside text-sm text-gray-600">
-                        <li>Trained in immediate Basic Life Support (BLS) and stabilizing patients.</li>
-                        <li>Skilled in treating wounds, burns, and managing shock.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="cv-section">
-            <h2 class="section-header">Projects & Activities</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- NEW PROJECT: BI Data Migration & Optimization -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect border-2 border-green-500">
-                    <img src="https://placehold.co/400x250/10b981/ffffff?text=BI+Optimization" alt="BI Data Migration Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
-                    <h3 class="text-2xl font-bold text-green-700 mb-2">BI Data Migration & Optimization</h3>
-                    <p class="text-gray-700 mb-4 font-semibold">Designed and implemented a scalable, high-performance BI architecture.</p>
-                    <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
-                        <li>**Objective:** Migrated historical relational data (6 sources) to a **MongoDB NoSQL Document Model**.</li>
-                        <li>**Execution:** Executed a complex **ETL pipeline (Python/Aggregation Framework)** to denormalize data.</li>
-                        <li>**Result:** Reduced analytical query times from minutes to **seconds**.</li>
-                        <li>**Real-Time:** Developed a real-time streaming simulation pipeline to integrate live payment transactions.</li>
-                    </ul>
-                    <div class="flex justify-between items-center mt-4">
-                        <a href="#" target="_blank" class="text-green-600 hover:underline"><i class="fas fa-database mr-1"></i>Project Details</a>
-                        <button class="project-explainer-btn bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300 shadow-md">
-                            Details
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project: Clinical Decision Support System (CDSS) -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
-                    <img src="https://placehold.co/400x250/cccccc/333333?text=CDSS" alt="CDSS Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-2">Clinical Decision Support System (CDSS)</h3>
-                    <p class="text-gray-700 mb-4">A web-based healthcare application developed in C# with a MySQL database backend.</p>
-                    <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
-                        <li>**Tech Stack:** C# (ASP.NET), MySQL.</li>
-                        <li>**Features:** Patient/Doctor Management, Symptom Tracking, Diagnosis Assistance.</li>
-                    </ul>
-                    <div class="flex justify-between items-center mt-4">
-                        <a href="https://github.com/bongo87/CDSS" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
-                        <button class="project-explainer-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
-                            Details
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project: Java Shuffle Word Game -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
-                    <img src="https://placehold.co/400x250/cccccc/333333?text=Java+Game" alt="Java Shuffle Word Game Thumbnail" class="rounded-lg mb-4 w-full h-auto">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-2">Java Shuffle Word Game</h3>
-                    <p class="text-gray-700 mb-4">A console-based word guessing game developed in Java for a Data Structures module.</p>
-                    <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
-                        <li>**Tech Stack:** Java, Custom `MyArrayList` (Data Structure), Console I/O.</li>
-                    </ul>
-                    <div class="flex justify-between items-center mt-4">
-                        <a href="https://github.com/bongo87/Java-ShuffleWordGame" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
-                        <button class="project-explainer-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
-                            Details
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="cv-section bg-white p-8 rounded-lg shadow-md">
-            <h2 class="section-header">Get in Touch</h2>
-            <div class="container mx-auto text-center">
-                <p class="text-lg mb-8 max-w-2xl mx-auto">
-                    I'm always open to new opportunities and collaborations. Feel free to reach out!
-                </p>
-                <div class="flex justify-center space-x-6 mb-10">
-                    <a href="mailto:rebonemotswana7@gmail.com" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rebone-motswana-844067202" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/bongo87" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="tel:+27818985610" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Back Button at the end of Page 2 -->
-        <div class="text-center py-8">
-             <button onclick="goToPage1()" class="bg-gray-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition duration-300 shadow-lg">
-                <i class="fas fa-arrow-left mr-2"></i> Back to Welcome Screen
-            </button>
-        </div>
-
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-white py-6 px-4 rounded-t-xl mt-4">
-            <div class="container mx-auto text-center">
-                <p>&copy; 2025 Rebone Motswana. All rights reserved.</p>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- JavaScript for Page Navigation -->
-    <script>
-        // Function to transition from Page 1 to Page 2
-        function goToPage2() {
-            document.getElementById('page1').classList.add('hidden');
-            document.getElementById('page2').classList.remove('hidden');
-            // Scroll to the top of the new page
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Function to transition from Page 2 to Page 1
-        function goToPage1() {
-            document.getElementById('page2').classList.add('hidden');
-            document.getElementById('page1').classList.remove('hidden');
-            // Scroll to the top of the new page
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // --- Form Submission Logic (Retained from previous version) ---
-
-        // Check for Firebase variables (required for the canvas environment, though form uses Formspree)
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        // Note: Firebase setup is not completed here as the form uses Formspree, but the variables are kept for environment compatibility.
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const contactForm = document.getElementById('contactForm');
-            const submitButton = document.getElementById('submitButton');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function(event) {
-                    event.preventDefault();
-                    submitButton.textContent = 'Sending...';
-                    submitButton.disabled = true;
-
-                    try {
-                        const formData = new FormData(contactForm);
-                        const response = await fetch(contactForm.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
-
-                        if (response.ok) {
-                            alert('Thank you! Your message has been sent successfully.');
-                            contactForm.reset();
-                        } else {
-                            alert('Oops! There was an issue sending your message.');
-                        }
-                    } catch (error) {
-                        console.error('Submission error:', error);
-                        alert('Oops! Network error or unexpected issue.');
-                    } finally {
-                        submitButton.textContent = 'Send Message';
-                        submitButton.disabled = false;
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+\end{document}
