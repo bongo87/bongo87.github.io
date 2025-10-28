@@ -1,68 +1,434 @@
-\documentclass[11pt, a4paper, sans]{moderncv}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebone Motswana - Virtual CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom font import for Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile menu */
+        }
+        /* Smooth scroll for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
 
-% moderncv options
-\moderncvstyle{casual}
-\moderncvcolor{blue}
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
 
-% Adjust geometry settings (moderncv handles most, but we can set overall margins)
-\usepackage[scale=0.8]{geometry}
-\usepackage{etoolbox}
-\usepackage{hyperref}
+        /* Subtle hover effect for cards - enhanced with subtle rotation */
+        .card-hover-effect {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-3px) rotateZ(0.5deg); /* Lift and slight rotate */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Pronounced shadow */
+        }
 
-% Personal Information
-\name{Ava}{Chen}
-\title{Senior Data Scientist}
-\address{123 Tech Drive}{San Francisco, CA 94107}
-\phone{(555) 123-4567}
-\email{ava.chen@email.com}
-\social[linkedin]{ava-chen-data}
-\social[github]{AvaDataScience}
-\homepage{www.avachen-datascience.com}
+        /* --- Page 1 Custom Styling (Inspired by Screenshot) --- */
+        #page1 {
+            background-color: #000000; /* Black background */
+            min-height: 100vh;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
 
-% --- THE DOCUMENT START ---
-\begin{document}
+        /* Geometric accents */
+        #page1::before, #page1::after {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            opacity: 0.2;
+        }
+        /* Top-left shape */
+        #page1::before {
+            top: -10vh;
+            left: -10vw;
+            width: 40vh;
+            height: 40vh;
+            background: #a3e635; /* Lime-500 */
+            border-radius: 50%;
+            clip-path: polygon(0 0, 0% 100%, 100% 0); /* Angled cut */
+        }
+        /* Bottom-right shape */
+        #page1::after {
+            bottom: -10vh;
+            right: -10vw;
+            width: 50vh;
+            height: 50vh;
+            background: #a3e635; /* Lime-500 */
+            border-radius: 30%;
+            clip-path: polygon(100% 100%, 0% 100%, 100% 0); /* Angled cut */
+        }
 
-% !!! CRUCIAL FIX: This command initializes the header and defines \cvsection, \cvitem, etc. !!!
-\makecvtitle
+        .intro-card {
+            background: #1f2937; /* Darker gray background for the main card area */
+            border: 2px solid #a3e635; /* Lime border */
+            position: relative;
+            z-index: 10;
+        }
+        .lime-bar {
+            background-color: #a3e635; /* Lime-500 */
+        }
+        /* --- End Page 1 Custom Styling --- */
 
-\cvsection{Summary}
-\cvlistitem{Highly accomplished **Senior Data Scientist** with 8+ years of experience in developing and deploying large-scale predictive models, machine learning pipelines, and advanced statistical analysis. Proven ability to translate complex business requirements into actionable data science solutions that drive revenue and operational efficiency.}
+        /* Ensure Page 2 sections start correctly without overlapping the header */
+        #page2 section {
+            padding-top: 2rem; /* Give space below the fixed header */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
 
-\cvsection{Experience}
+    <!-- Global Navigation (Minimal - just the name) -->
+    <nav id="global-nav" class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Rebone Motswana</a>
+        </div>
+    </nav>
 
-\cventry{2019--Present}{Senior Data Scientist}{Tech Innovators Inc.}{San Francisco, CA}{}{
-  \begin{itemize}
-    \item Developed and deployed a real-time churn prediction model (XGBoost) that improved customer retention by **15\%**, resulting in \$5M in annual savings.
-    \item Designed and managed end-to-end ML production pipelines using **Kubeflow** and **Docker**, reducing model retraining time from 6 hours to 30 minutes.
-    \item Led a team of 3 data scientists, mentoring them in best practices for **A/B testing**, code quality, and cloud deployment (**AWS SageMaker**).
-    \item Performed advanced time-series forecasting for inventory optimization, reducing overstocking waste by 22\%.
-    \item Implemented a robust data governance framework to ensure model fairness and compliance with data privacy regulations (GDPR, CCPA).
-  \end{itemize}
-}
+    <!-- --- PAGE 1: INTRO / WELCOME PAGE --- -->
+    <div id="page1" class="">
+        <div class="container mx-auto intro-card p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+                <!-- Left Column: Image -->
+                <div class="md:col-span-1 flex justify-center">
+                    <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-48 h-48 border-4 border-lime-500 shadow-lg object-cover">
+                </div>
+                
+                <!-- Right Column: Text Content -->
+                <div class="md:col-span-2 space-y-4">
+                    <h1 class="text-5xl font-extrabold text-white">REBONE MOTSWANA</h1>
+                    <span class="inline-block lime-bar px-3 py-1 text-black font-semibold uppercase tracking-widest text-sm rounded-full shadow-md">
+                        BSc IT Student
+                    </span>
+                    
+                    <div class="pt-4">
+                        <h2 class="text-3xl font-bold text-lime-400 mb-2">ABOUT ME</h2>
+                        <p class="text-gray-300 leading-relaxed max-w-lg mx-auto md:mx-0">
+                            Motivated and detail-oriented final-year BSc Information Technology student with a strong foundation in programming (Python, C#, C++, Java) and problem-solving. Keenly interested in AI chatbot development and contributing to innovative, remote technology projects.
+                        </p>
+                    </div>
 
-\cventry{2017--2019}{Data Analyst}{Global Finance Group}{New York, NY}{}{
-  \begin{itemize}
-    \item Conducted market basket analysis and segmentation studies, identifying three new profitable customer segments.
-    \item Automated reporting processes using Python (**Pandas, NumPy**) and SQL, saving the business intelligence team 10 hours per week.
-    \item Created interactive data visualizations using **Tableau** to present key performance indicators (KPIs) to executive leadership.
-  \end{itemize}
-}
+                    <!-- Simulated Quick Info (Based on Screenshot) -->
+                    <div class="grid grid-cols-2 gap-4 text-center pt-6">
+                        <div class="p-3 lime-bar text-black rounded-lg font-semibold">
+                            <i class="fas fa-code mr-1"></i>
+                            Skills: Python, C#, Java
+                        </div>
+                        <div class="p-3 lime-bar text-black rounded-lg font-semibold">
+                            <i class="fas fa-graduation-cap mr-1"></i>
+                            Education: North-West University
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-\cvsection{Technical Skills}
-\cvlistdoubleitem
-  {**Programming:** Python (Scikit-learn, TensorFlow, PyTorch), R, SQL, Scala}
-  {**Cloud/DevOps:** AWS (S3, EC2, SageMaker), Docker, Kubeflow, Git}
-\cvlistdoubleitem
-  {**Databases:** PostgreSQL, MongoDB, Snowflake, Elasticsearch}
-  {**Tools/Methods:** A/B Testing, Time Series, NLP, Computer Vision, ETL, Tableau, Power BI}
-  
-\cvsection{Key Projects}
-\cvitemwithcomment{NLP Sentiment Analyzer}{Built a neural network (LSTM) to classify sentiment from customer reviews with 92\% accuracy, processing over 1 million records daily.}
-\cvitemwithcomment{Custom Recommendation Engine}{Developed a collaborative filtering algorithm that led to a 10\% increase in cross-sell rates and personalized user experience.}
-\cvitemwithcomment{Fraud Detection System}{Engineered a real-time anomaly detection system using isolation forests to flag fraudulent transactions, reducing losses by 4\%.}
+            <!-- Page Navigation Button -->
+            <div class="text-center mt-12">
+                <button onclick="showPage(2)" class="bg-lime-500 text-gray-900 px-10 py-4 rounded-full font-bold text-xl hover:bg-lime-400 transition duration-300 shadow-lg card-hover-effect">
+                    View Full CV <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
-\cvsection{Education}
-\cventry{2015--2017}{M.S. in Data Science}{Carnegie Mellon University}{Pittsburgh, PA}{GPA: 3.9/4.0}{}
-\cventry{2011--2015}{B.S. in Computer Science}{Stanford University}{Palo Alto, CA}{}{}
+    <!-- --- PAGE 2: MAIN CV CONTENT --- -->
+    <div id="page2" class="hidden">
+        
+        <!-- About Me Section -->
+        <section id="about" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center md:items-start">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+                        <p id="about-text-content-1" class="text-lg leading-relaxed mb-4">
+                            As a final-year BSc Information Technology student, I am a fast learner with excellent communication skills, eager to contribute to innovative, remote technology projects.
+                            My foundation is strong in programming and problem-solving, with practical experience in various coding challenges.
+                        </p>
+                        <p id="about-text-content-2" class="text-lg leading-relaxed mb-4">
+                            My career objective is to gain practical experience in real-world software development, particularly by contributing to AI chatbot projects.
+                            I aim to sharpen my coding and evaluation skills while working remotely and independently in a fast-paced, innovative environment.
+                        </p>
+                        <p id="about-text-content-3" class="text-lg leading-relaxed">
+                            I am committed, dependable, and results-oriented, quick to adapt, and open to learning new technologies. I possess strong attention to detail and problem-solving abilities.
+                        </p>
+                        <!-- Summarize button removed -->
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.46%20(1).jpeg?raw=true" alt="About Me Image" class="rounded-lg shadow-lg w-full h-auto card-hover-effect">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-\end{document}
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 px-4 bg-gray-100 rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Technical Skills -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-code mr-2"></i>Technical Skills</h3>
+                        <ul id="technical-skills-content" class="list-disc list-inside text-lg space-y-2">
+                            <li>Languages: Python, Java, HTML, C#, SQL, C++</li>
+                            <li>Tools & Technologies: Git, VS Code, React (basic), Node.js (introductory level)</li>
+                            <li>Problem Solving: LeetCode, HackerRank-style challenges</li>
+                        </ul>
+                    </div>
+                    <!-- Soft Skills -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-users mr-2"></i>Soft Skills</h3>
+                        <ul id="soft-skills-content" class="list-disc list-inside text-lg space-y-2">
+                            <li>Attention to detail</li>
+                            <li>Time management</li>
+                            <li>Communication</li>
+                            <li>Teamwork</li>
+                            <li>Hardworker</li>
+                        </ul>
+                    </div>
+                    <!-- Core Competencies -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-lightbulb mr-2"></i>Core Competencies</h3>
+                        <ul id="core-competencies-content" class="list-disc list-inside text-lg space-y-2">
+                            <li>Fluent in English and Setswana</li>
+                            <li>Committed, dependable, and results-oriented</li>
+                            <li>Quick to adapt and open to learning new technologies</li>
+                            <li>Strong attention to detail and problem-solving ability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Education</h2>
+                <div class="space-y-8">
+                    <!-- North-West University -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex flex-col md:flex-row items-start">
+                        <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
+                            <p class="font-semibold text-lg">Expected Completion: 2025</p>
+                            <p class="text-md">Mafikeng, South Africa</p>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-2xl font-bold text-blue-600">Bachelor of Science in Information Technology</h3>
+                            <p class="text-xl font-semibold text-gray-700 mb-2">North-West University</p>
+                            <p class="text-lg">Currently in Final Year.</p>
+                            <p class="text-lg">Coursework Highlights: Algorithms and data structures, software development, web programming.</p>
+                        </div>
+                    </div>
+                    <!-- Letsatsing Science Secondary School -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex flex-col md:flex-row items-start">
+                        <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
+                            <p class="font-semibold text-lg">2021</p>
+                            <p class="text-md">South Africa</p>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-2xl font-bold text-blue-600">National Senior Certificate</h3>
+                            <p class="text-xl font-semibold text-gray-700 mb-2">Letsatsing Science Secondary School</p>
+                            <p class="text-lg">Subjects: English, Setswana, Mathematics, Physical Science, Life Science, Geography, Life Orientation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (with new BI project) -->
+        <section id="projects" class="py-16 px-4 bg-gray-100 rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Projects & Activities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project: Business Intelligence (BI) Data Migration & Optimization -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <img src="https://placehold.co/400x250/10b981/ffffff?text=BI+Pipeline" alt="BI Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-2xl font-bold text-green-600 mb-2">BI Data Migration & Optimization</h3>
+                        <p id="bi-project-description" class="text-gray-700 mb-4">Designed and implemented a scalable, high-performance Business Intelligence (BI) architecture, migrating historical relational data from 6 sources to a MongoDB NoSQL Document Model. Executed a complex ETL pipeline (Python/Aggregation Framework) to denormalize data into a single, read-optimized collection, reducing analytical query times from minutes to seconds. Developed a real-time streaming simulation pipeline to validate the system’s capacity for both batch and real-time analytics.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
+                            <li>**Features:** Scalable BI architecture, ETL Pipeline, Real-time Simulation.</li>
+                            <li>**Tech Stack:** MongoDB (NoSQL), Python, Aggregation Framework.</li>
+                            <li>**Value:** Reduced analytical query times from minutes to seconds.</li>
+                        </ul>
+                        <div class="flex justify-start items-center mt-4">
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
+                            <!-- Explain button removed -->
+                        </div>
+                    </div>
+
+                    <!-- Project: Clinical Decision Support System (CDSS) -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <img src="https://placehold.co/400x250/cccccc/333333?text=CDSS" alt="CDSS Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-2">Clinical Decision Support System (CDSS)</h3>
+                        <p id="cdss-project-description" class="text-gray-700 mb-4">A web-based healthcare application developed in C# with a MySQL database backend. Designed to enhance the quality and efficiency of healthcare delivery by assisting medical professionals with accurate, timely, and data-driven clinical decisions.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
+                            <li>**Features:** Patient/Doctor Management, Symptom Tracking, Diagnosis Assistance, Treatment Management, Drug Inventory, Appointment Scheduling.</li>
+                            <li>**Tech Stack:** C# (ASP.NET), MySQL.</li>
+                            <li>**Role:** Contributed to the system design and implementation of the actual system.</li>
+                            <li>**Collaboration:** Developed as a collaborative group project for a university course.</li>
+                        </ul>
+                        <div class="flex justify-start items-center mt-4">
+                            <a href="https://github.com/bongo87/CDSS" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
+                            <!-- Explain button removed -->
+                        </div>
+                    </div>
+                    <!-- Project: Java Shuffle Word Game -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <img src="https://placehold.co/400x250/cccccc/333333?text=Java+Game" alt="Java Shuffle Word Game Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-2">Java Shuffle Word Game</h3>
+                        <p id="java-game-description" class="text-gray-700 mb-4">A console-based word guessing game developed in Java. This project was built for a Data Structures module, showcasing a custom `ArrayList` implementation, character wrapping, and algorithms for word shuffling and verification. It highlights practical application of core data structures concepts.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
+                            <li>**Tech Stack:** Java, Custom `MyArrayList` (Data Structure), Console I/O.</li>
+                            <li>**Role:** Personal project for Data Structures module.</li>
+                        </ul>
+                        <div class="flex justify-start items-center mt-4">
+                            <a href="https://github.com/bongo87/Java-ShuffleWordGame" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
+                            <!-- Explain button removed -->
+                        </div>
+                    </div>
+                    <!-- Project: Basic Interactive Websites -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <img src="https://placehold.co/400x250/cccccc/333333?text=Websites" alt="Interactive Websites Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-2">Basic Interactive Websites</h3>
+                        <p id="websites-project-description" class="text-gray-700 mb-4">Personal projects where I built interactive websites using HTML, C#, and JavaScript to practice web development fundamentals.</p>
+                        <div class="flex justify-start items-center mt-4">
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
+                            <!-- Explain button removed -->
+                        </div>
+                    </div>
+                    <!-- Project: Algorithm Problems -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <img src="https://placehold.co/400x250/cccccc/333333?text=Algorithms" alt="Algorithm Problems Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-2">Algorithm Problem Solving</h3>
+                        <p id="algorithms-project-description" class="text-gray-700 mb-4">Solved various algorithm problems using Python on platforms like HackerRank, enhancing problem-solving and coding skills.</p>
+                        <div class="flex justify-start items-center mt-4">
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
+                            <!-- Explain button removed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-10 text-blue-700">Get in Touch</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">
+                    I'm always open to new opportunities and collaborations. Feel free to reach out!
+                </p>
+                <div class="flex justify-center space-x-6 mb-10">
+                    <a href="mailto:rebonemotswana7@gmail.com" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rebone-motswana-844067202" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/bongo87" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="tel:+27818985610" class="text-blue-600 hover:text-blue-800 transition duration-300 text-4xl" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+
+                <!-- Simple Contact Form -->
+                <div class="max-w-xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-600">Send a Message</h3>
+                    <form id="contactForm" action="https://formspree.io/f/movlpynl" method="POST" class="space-y-4">
+                        <div class="mb-4">
+                            <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" required>
+                        </div>
+                        <div class="mb-6">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" required></textarea>
+                        </div>
+                        <button type="submit" id="submitButton" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 shadow-md">Send Message</button>
+                    </form>
+                    <p class="text-sm text-gray-500 mt-4">Note: This form uses Formspree.io to send messages. A Formspree account and endpoint are required.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div class="text-center py-10 bg-gray-200">
+            <button onclick="showPage(1)" class="bg-gray-700 text-white px-10 py-4 rounded-full font-bold text-xl hover:bg-gray-600 transition duration-300 shadow-lg card-hover-effect">
+                <i class="fas fa-arrow-left mr-2"></i> Go Back to Intro
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8 px-4 mt-8 rounded-t-xl">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2025 Rebone Motswana. All rights reserved.</p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="https://www.linkedin.com/in/rebone-motswana-844067202" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/bongo87" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:rebonemotswana7@gmail.com" class="text-gray-400 hover:text-white transition duration-300" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Page Switching -->
+    <script>
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const globalNav = document.getElementById('global-nav');
+        
+        // --- Page Switching Logic ---
+        function showPage(pageNumber) {
+            
+            if (pageNumber === 1) {
+                // Show Page 1 (Intro)
+                page1.classList.remove('hidden');
+                page2.classList.add('hidden');
+                globalNav.classList.remove('shadow-xl'); 
+            } else if (pageNumber === 2) {
+                // Show Page 2 (Main CV)
+                page1.classList.add('hidden');
+                page2.classList.remove('hidden');
+                globalNav.classList.add('shadow-xl'); 
+            }
+            
+            // Scroll smoothly to the top of the window, which is the start of the visible page.
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize to Page 1
+        window.onload = () => {
+            showPage(1);
+        };
+    </script>
+</body>
+</html>
