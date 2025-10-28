@@ -17,11 +17,12 @@
 \social[github]{AvaDataScience}
 \homepage{www.avachen-datascience.com}
 
-% --- The Babel and Font Setup Block (Required for Noto, but moderncv handles most of this itself when using LuaLaTeX) ---
-% Using LuaLaTeX with moderncv defaults to robust font handling. We keep the preamble clean.
+% --- The Babel and Font Setup Block (moderncv handles fonts automatically) ---
 \usepackage[english, main=english]{babel}
 \usepackage{etoolbox}
 \usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
 
 % Document body starts here
 \begin{document}
@@ -29,16 +30,35 @@
 % The \makecvtitle command sets up the header and defines key commands like \cvsection
 \makecvtitle
 
+% --- View Full CV Button (clickable jump link) ---
+\begin{center}
+  \tcbset{
+    colback=blue!10!white,
+    colframe=blue!70!black,
+    arc=3pt,
+    boxrule=0.8pt,
+  }
+  \href{#secondpage}{
+    \begin{tcolorbox}[width=0.4\textwidth, center title, nobeforeafter, halign=center]
+      \textbf{VIEW FULL CV}
+    \end{tcolorbox}
+  }
+\end{center}
+
 \cvsection{Summary}
-\cvlistitem{Highly accomplished **Senior Data Scientist** with 8+ years of experience in developing and deploying large-scale predictive models, machine learning pipelines, and advanced statistical analysis. Proven ability to translate complex business requirements into actionable data science solutions that drive revenue and operational efficiency.}
+\cvlistitem{Highly accomplished \textbf{Senior Data Scientist} with 8+ years of experience in developing and deploying large-scale predictive models, machine learning pipelines, and advanced statistical analysis. Proven ability to translate complex business requirements into actionable data science solutions that drive revenue and operational efficiency.}
+
+% --- Force second page to begin here ---
+\newpage
+\hypertarget{secondpage}{}
 
 \cvsection{Experience}
 
 \cventry{2019--Present}{Senior Data Scientist}{Tech Innovators Inc.}{San Francisco, CA}{}{
   \begin{itemize}
-    \item Developed and deployed a real-time churn prediction model (XGBoost) that improved customer retention by **15\%**, resulting in \$5M in annual savings.
-    \item Designed and managed end-to-end ML production pipelines using **Kubeflow** and **Docker**, reducing model retraining time from 6 hours to 30 minutes.
-    \item Led a team of 3 data scientists, mentoring them in best practices for **A/B testing**, code quality, and cloud deployment (**AWS SageMaker**).
+    \item Developed and deployed a real-time churn prediction model (XGBoost) that improved customer retention by \textbf{15\%}, resulting in \$5M in annual savings.
+    \item Designed and managed end-to-end ML production pipelines using \textbf{Kubeflow} and \textbf{Docker}, reducing model retraining time from 6 hours to 30 minutes.
+    \item Led a team of 3 data scientists, mentoring them in best practices for \textbf{A/B testing}, code quality, and cloud deployment (\textbf{AWS SageMaker}).
     \item Performed advanced time-series forecasting for inventory optimization, reducing overstocking waste by 22\%.
   \end{itemize}
 }
@@ -46,18 +66,18 @@
 \cventry{2017--2019}{Data Analyst}{Global Finance Group}{New York, NY}{}{
   \begin{itemize}
     \item Conducted market basket analysis and segmentation studies, identifying three new profitable customer segments.
-    \item Automated reporting processes using Python (**Pandas, NumPy**) and SQL, saving the business intelligence team 10 hours per week.
-    \item Created interactive data visualizations using **Tableau** to present key performance indicators (KPIs) to executive leadership.
+    \item Automated reporting processes using Python (\textbf{Pandas, NumPy}) and SQL, saving the business intelligence team 10 hours per week.
+    \item Created interactive data visualizations using \textbf{Tableau} to present key performance indicators (KPIs) to executive leadership.
   \end{itemize}
 }
 
 \cvsection{Technical Skills}
 \cvlistdoubleitem
-  {**Programming:** Python (Scikit-learn, TensorFlow, PyTorch), R, SQL, Scala}
-  {**Cloud/DevOps:** AWS (S3, EC2, SageMaker), Docker, Kubeflow, Git}
+  {\textbf{Programming:} Python (Scikit-learn, TensorFlow, PyTorch), R, SQL, Scala}
+  {\textbf{Cloud/DevOps:} AWS (S3, EC2, SageMaker), Docker, Kubeflow, Git}
 \cvlistdoubleitem
-  {**Databases:** PostgreSQL, MongoDB, Snowflake}
-  {**Tools/Methods:** A/B Testing, Time Series, NLP, ETL, Tableau, Power BI}
+  {\textbf{Databases:} PostgreSQL, MongoDB, Snowflake}
+  {\textbf{Tools/Methods:} A/B Testing, Time Series, NLP, ETL, Tableau, Power BI}
 
 \cvsection{Education}
 \cventry{2015--2017}{M.S. in Data Science}{Carnegie Mellon University}{Pittsburgh, PA}{GPA: 3.9/4.0}{}
