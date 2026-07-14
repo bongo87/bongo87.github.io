@@ -109,6 +109,11 @@
     <nav id="global-nav" class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-blue-600">Rebone Motswana</a>
+            <div class="flex space-x-4 items-center">
+                <a href="./Rebone_Motswana_CV.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg text-sm transition shadow-md flex items-center">
+                    <i class="fas fa-file-pdf mr-2"></i> Download PDF CV
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -116,9 +121,12 @@
     <div id="page1" class="">
         <div class="container mx-auto intro-card p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
-                <!-- Left Column: Image -->
-                <div class="md:col-span-1 flex justify-center">
+                <!-- Left Column: Image & PDF download -->
+                <div class="md:col-span-1 flex flex-col items-center justify-center space-y-4">
                     <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-48 h-48 border-4 border-lime-500 shadow-lg object-cover">
+                    <a href="./Rebone_Motswana_CV.pdf" target="_blank" class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-sm transition flex items-center shadow-md">
+                        <i class="fas fa-file-pdf mr-2"></i> Download PDF CV
+                    </a>
                 </div>
                 
                 <!-- Right Column: Text Content -->
@@ -178,7 +186,6 @@
                         <p id="about-text-content-3" class="text-lg leading-relaxed">
                             I am committed, dependable, and results-oriented, quick to adapt, and open to learning new technologies. I possess strong attention to detail and problem-solving abilities.
                         </p>
-                        <!-- Summarize button removed -->
                     </div>
                     <div class="md:w-1/2">
                         <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.46%20(1).jpeg?raw=true" alt="About Me Image" class="rounded-lg shadow-lg w-full h-auto card-hover-effect">
@@ -234,7 +241,7 @@
                     <!-- North-West University -->
                     <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex flex-col md:flex-row items-start">
                         <div class="md:w-1/4 text-gray-600 mb-4 md:mb-0">
-                            <p class="font-semibold text-lg">Expected Completion: 2026- in progress</p>
+                            <p class="font-semibold text-lg">Expected Completion: 2026 - In progress</p>
                             <p class="text-md">Vanderbeijlpark, Gauteng, South Africa</p>
                         </div>
                         <div class="md:w-3/4">
@@ -260,12 +267,58 @@
             </div>
         </section>
 
-        <!-- Projects Section (with new BI project) -->
+        <!-- Training & Certifications Section -->
+        <section id="certifications" class="py-16 px-4 bg-white rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Training & Certifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- First Aid Training -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex items-center space-x-4">
+                        <div class="bg-red-100 text-red-600 p-4 rounded-full text-3xl">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">First Aid Training (Level 1)</h3>
+                            <p class="text-md text-blue-600 font-semibold">Emfuleni Fire Fighting Department</p>
+                            <p class="text-sm text-gray-500">Year Certified: 2025</p>
+                        </div>
+                    </div>
+                    <!-- Fire Fighting Training -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect flex items-center space-x-4">
+                        <div class="bg-orange-100 text-orange-600 p-4 rounded-full text-3xl">
+                            <i class="fas fa-fire-extinguisher"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Basic Fire Fighting</h3>
+                            <p class="text-md text-blue-600 font-semibold">Emfuleni Fire Fighting Department</p>
+                            <p class="text-sm text-gray-500">Year Certified: 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
         <section id="projects" class="py-16 px-4 bg-gray-100 rounded-lg shadow-md mx-auto mt-8 max-w-6xl">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Projects & Activities</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
+                    <!-- NEW Project: Computer Networks Project (Cisco Packet Tracer) -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
+                        <img src="https://placehold.co/400x250/1e3a8a/ffffff?text=Networks+Simulation" alt="Networks Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-2">Enterprise Campus Network Simulation</h3>
+                        <p id="networks-project-description" class="text-gray-700 mb-4">Designed and simulated a secure multi-floor campus network architecture. Configured VLAN trunking, subnets, and DHCP pools across departments, and successfully troubleshot routing issues to ensure 100% virtual uptime.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
+                            <li>**Features:** VLAN Trunking, subnets, and automated DHCP pools.</li>
+                            <li>**Tech Stack:** Cisco Packet Tracer, Routing Protocols.</li>
+                            <li>**Value:** Leveraged systematic diagnostics to guarantee 100% simulated uptime.</li>
+                        </ul>
+                        <div class="flex justify-start items-center mt-4">
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Profile</a>
+                        </div>
+                    </div>
+
                     <!-- Project: Business Intelligence (BI) Data Migration & Optimization -->
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                         <img src="https://placehold.co/400x250/10b981/ffffff?text=BI+Pipeline" alt="BI Project Thumbnail" class="rounded-lg mb-4 w-full h-auto">
@@ -277,8 +330,7 @@
                             <li>**Value:** Reduced analytical query times from minutes to seconds.</li>
                         </ul>
                         <div class="flex justify-start items-center mt-4">
-                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
-                            <!-- Explain button removed -->
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Profile</a>
                         </div>
                     </div>
 
@@ -295,9 +347,9 @@
                         </ul>
                         <div class="flex justify-start items-center mt-4">
                             <a href="https://github.com/bongo87/CDSS" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
-                            <!-- Explain button removed -->
                         </div>
                     </div>
+
                     <!-- Project: Java Shuffle Word Game -->
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                         <img src="https://placehold.co/400x250/cccccc/333333?text=Java+Game" alt="Java Shuffle Word Game Thumbnail" class="rounded-lg mb-4 w-full h-auto">
@@ -309,27 +361,26 @@
                         </ul>
                         <div class="flex justify-start items-center mt-4">
                             <a href="https://github.com/bongo87/Java-ShuffleWordGame" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Repo</a>
-                            <!-- Explain button removed -->
                         </div>
                     </div>
+
                     <!-- Project: Basic Interactive Websites -->
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                         <img src="https://placehold.co/400x250/cccccc/333333?text=Websites" alt="Interactive Websites Thumbnail" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-2xl font-bold text-blue-600 mb-2">Basic Interactive Websites</h3>
                         <p id="websites-project-description" class="text-gray-700 mb-4">Personal projects where I built interactive websites using HTML, C#, and JavaScript to practice web development fundamentals.</p>
                         <div class="flex justify-start items-center mt-4">
-                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
-                            <!-- Explain button removed -->
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Profile</a>
                         </div>
                     </div>
+
                     <!-- Project: Algorithm Problems -->
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 card-hover-effect">
                         <img src="https://placehold.co/400x250/cccccc/333333?text=Algorithms" alt="Algorithm Problems Thumbnail" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-2xl font-bold text-blue-600 mb-2">Algorithm Problem Solving</h3>
                         <p id="algorithms-project-description" class="text-gray-700 mb-4">Solved various algorithm problems using Python on platforms like HackerRank, enhancing problem-solving and coding skills.</p>
                         <div class="flex justify-start items-center mt-4">
-                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub (Example)</a>
-                            <!-- Explain button removed -->
+                            <a href="https://github.com/bongo87" target="_blank" class="text-blue-500 hover:underline"><i class="fab fa-github mr-1"></i>GitHub Profile</a>
                         </div>
                     </div>
                 </div>
@@ -388,7 +439,7 @@
         <!-- Footer -->
         <footer class="bg-gray-800 text-white py-8 px-4 mt-8 rounded-t-xl">
             <div class="container mx-auto text-center">
-                <p>&copy; 2025 Rebone Motswana. All rights reserved.</p>
+                <p>&copy; 2026 Rebone Motswana. All rights reserved.</p>
                 <div class="flex justify-center space-x-4 mt-4">
                     <a href="https://www.linkedin.com/in/rebone-motswana-844067202" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/bongo87" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="GitHub">
