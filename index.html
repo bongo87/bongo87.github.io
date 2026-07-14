@@ -46,7 +46,7 @@
         #page1 {
             background-color: #000000; /* Black background */
             min-height: 100vh;
-            display: flex;
+            /* Layout is now strictly handled by JS/Tailwind to prevent overlap bugs */
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -117,7 +117,7 @@
 <body class="bg-slate-950">
 
     <!-- Global Navigation -->
-    <nav id="global-nav" class="bg-gray-950 border-b border-gray-800 p-4 sticky top-0 z-50 transition-all duration-300 hidden">
+    <nav id="global-nav" class="bg-gray-950 border-b border-gray-800 p-4 sticky top-0 z-50 transition-all duration-300" style="display: none;">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <a href="#" onclick="showPage(1)" class="text-2xl font-bold text-white hover:text-lime-400 transition">
                 Rebone <span class="text-lime-400">Motswana</span>
@@ -143,7 +143,7 @@
     </nav>
 
     <!-- --- PAGE 1: INTRO / WELCOME PAGE --- -->
-    <div id="page1" class="flex">
+    <div id="page1" class="flex" style="display: flex;">
         <div class="container mx-auto intro-card p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
                 <!-- Left Column: Image & PDF download -->
@@ -190,7 +190,7 @@
     </div>
 
     <!-- --- PAGE 2: MAIN CV CONTENT (TAB CONTAINER) --- -->
-    <div id="page2" class="hidden min-h-screen py-10 px-4">
+    <div id="page2" class="min-h-screen py-10 px-4" style="display: none;">
         <div class="container mx-auto max-w-6xl">
             
             <!-- Tab 0: About Me Section -->
@@ -452,18 +452,15 @@
 
         function showPage(pageNumber) {
             if (pageNumber === 1) {
-                // Completely swap visibilities using flex classes
-                page1.classList.remove('hidden');
-                page1.classList.add('flex');
-                
-                page2.classList.add('hidden');
-                globalNav.classList.add('hidden'); 
+                // Hard reset the layouts on the elements directly to avoid specificity issues
+                page1.style.setProperty('display', 'flex', 'important');
+                page2.style.setProperty('display', 'none', 'important');
+                globalNav.style.setProperty('display', 'none', 'important'); 
             } else if (pageNumber === 2) {
-                page1.classList.add('hidden');
-                page1.classList.remove('flex');
-                
-                page2.classList.remove('hidden');
-                globalNav.classList.remove('hidden'); 
+                // Completely kill page 1 visibility when switching inside the CV tabs
+                page1.style.setProperty('display', 'none', 'important');
+                page2.style.setProperty('display', 'block', 'important');
+                globalNav.style.setProperty('display', 'block', 'important'); 
                 switchTab(0); // Force to first tab ("About") when entering Full CV
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -499,7 +496,7 @@
         // --- Mouse Wheel Transition System ---
         window.addEventListener('wheel', function(e) {
             // Only scroll tabs if we are currently looking at Page 2 (the Full CV page)
-            if (page2.classList.contains('hidden') || isTransitioning) return;
+            if (page2.style.display === 'none' || isTransitioning) return;
 
             // Calculate current scroll position
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -529,7 +526,7 @@
             }, 600); // 600ms cooldown threshold matching slide animation speed
         }
 
-        // Initialize to Page 1
+        // Initialize directly to Page 1
         window.onload = () => {
             showPage(1);
         };
