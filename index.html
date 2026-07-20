@@ -144,14 +144,23 @@
     </nav>
 
     <!-- --- PAGE 1: INTRO / WELCOME PAGE --- -->
+    /* The user should be able to request a full CV in pdf format */
     <div id="page1" class="flex" style="display: flex;">
         <div class="container mx-auto intro-card p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
-                <!-- Left Column: Image & PDF download -->
+                <!-- Left Column: Image & PDF Request -->
                 <div class="md:col-span-1 flex flex-col items-center justify-center space-y-4">
                     <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-48 h-48 border-4 border-lime-500 shadow-lg object-cover">
-                    <a href="./Rebone_Motswana_CV.pdf" target="_blank" class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-sm transition flex items-center shadow-md">
-                        <i class="fas fa-file-pdf mr-2"></i> Download PDF CV
+                    
+                    <!-- SECURE BUTTON -->
+                    <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
+                       class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-sm transition flex items-center shadow-md">
+                        <i class="fas fa-envelope mr-2"></i> Request Full CV
+                    </a>
+                    <!-- Secondary CTA: Direct LinkedIn Link -->
+                    <a href="https://linkedin.com/in/rebone-motswana-844067202" target="_blank" rel="noopener noreferrer" 
+                       class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-lg transition duration-200">
+                        LinkedIn
                     </a>
                 </div>
                 
@@ -538,5 +547,13 @@
             showPage(1);
         };
     </script>
+
+    <footer class="mt-16 border-t border-gray-800 pt-8 pb-8 text-center text-xs text-gray-500">
+        <p>© 2026 Rebone Motswana. Built with Tailwind CSS & Hosted on GitHub Pages.</p>
+        <p class="mt-1">
+            🔒 <span class="italic">To protect personal data and privacy, full CV and official academic references are provided upon request.</span>
+        </p>
+    </footer>
+    
 </body>
 </html>
