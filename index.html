@@ -1,4 +1,4 @@
-/* Programming a Vitrtual Cv (Portfolio) */
+// Programming a Vitrtual Cv (Portfolio)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,16 +135,18 @@
                 <button onclick="switchTab(6)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="6">Contact</button>
             </div>
 
+            //the user must be able to request a pdf format cv in every tab
             <div class="flex items-center">
-                <a href="./Rebone_Motswana_CV.pdf" target="_blank" class="bg-lime-500 hover:bg-lime-400 text-black font-semibold px-4 py-2 rounded-lg text-sm transition shadow-md flex items-center">
-                    <i class="fas fa-file-pdf mr-2"></i> Download PDF CV
+                <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
+                   class="bg-lime-500 hover:bg-lime-400 text-black font-semibold px-4 py-2 rounded-lg text-sm transition shadow-md flex items-center">
+                    <i class="fas fa-envelope mr-2"></i> Request CV (PDF)
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- --- PAGE 1: INTRO / WELCOME PAGE --- -->
-    /* The user should be able to request a full CV in pdf format */
+    // The user should be able to request a full CV in pdf format 
     <div id="page1" class="flex" style="display: flex;">
         <div class="container mx-auto intro-card p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
@@ -155,7 +157,7 @@
                     <!-- SECURE BUTTON -->
                     <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
                        class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-sm transition flex items-center shadow-md">
-                        <i class="fas fa-envelope mr-2"></i> Request Full CV
+                        <i class="fas fa-envelope mr-2"></i> Request CV (PDF)
                     </a>
                     <!-- Secondary CTA: Direct LinkedIn Link -->
                     <a href="https://linkedin.com/in/rebone-motswana-844067202" target="_blank" rel="noopener noreferrer" 
