@@ -1,3 +1,4 @@
+/* Programming a Vitrtual Cv (Portfolio)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0b0f19; /* Dark background matching page 1 style */
+            background-color: #0b0f19; /* Insert a dark background to matching page 1 style */
             color: #f3f4f6;
             overflow-x: hidden;
             transition: background-color 0.5s ease;
@@ -82,7 +83,7 @@
         }
 
         .intro-card {
-            background: #111827; /* Darker gray background for the main card area */
+            background: #111827; /* Making a darker gray background for the main card area */
             border: 2px solid #a3e635; /* Lime border */
             position: relative;
             z-index: 10;
@@ -271,7 +272,7 @@
                             <div class="md:w-3/4">
                                 <h3 class="text-2xl font-bold text-white">Bachelor of Science in Information Technology</h3>
                                 <p class="text-xl font-semibold text-gray-400 mb-2">North-West University</p>
-                                <p class="text-gray-300">Coursework Highlights: Algorithms and data structures, software engineering, web programming, databases, systems development.</p>
+                                <p class="text-gray-300">Coursework Highlights: Data Structure and algorithms, software development, web programming, databases, systems design and analysis.</p>
                             </div>
                         </div>
                         <!-- Letsatsing Science Secondary School -->
@@ -324,13 +325,19 @@
                 <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
                     <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-project-diagram mr-3"></i>Featured Projects</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Project: Enterprise Campus Network Simulation -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                            <img src="https://placehold.co/400x250/090d16/ffffff?text=Cisco+Packet+Tracer" alt="Network simulation thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
-                            <h3 class="text-xl font-bold text-lime-400 mb-2">Enterprise Campus Network Simulation</h3>
-                            <p class="text-gray-400 text-sm mb-4">Designed a simulated local campus enterprise architecture with VLAN trunks, subnets, and automated DHCP pools.</p>
-                            <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">Cisco Packet Tracer</span>
-                        </div>
+                        <!-- Project: CMPG315 Corporate Office Network Simulation -->
+                            <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
+                                <img src="https://placehold.co/400x250/090d16/ffffff?text=Cisco+Packet+Tracer" alt="Network simulation thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
+                                <h3 class="text-xl font-bold text-lime-400 mb-2">Corporate Office Network Design</h3>
+                                <p class="text-gray-400 text-sm mb-4">
+                                    Designed a complete single-building enterprise office network in Cisco Packet Tracer, featuring departmental VLAN isolation, subnetting, guest/staff Wi-Fi, and centralized server room services.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">Cisco Packet Tracer</span>
+                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">VLANs & Subnetting</span>
+                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">DHCP / DNS / NAT</span>
+                                </div>
+                            </div>
                         
                         <!-- Project: MongoDB BI Optimization -->
                         <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
