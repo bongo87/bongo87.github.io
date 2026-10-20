@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Sets viewport width to device width and initial scale to 1 for mobile responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebone Motswana - Virtual CV</title>
     <!-- Tailwind CSS CDN -->
@@ -50,7 +51,7 @@
             /* Layout is now strictly handled by JS/Tailwind to prevent overlap bugs */
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 1rem; /* Adjusted padding to fit mobile screens safely */
             position: relative;
         }
 
@@ -125,20 +126,20 @@
             </a>
             
             <!-- Page Navigation Tabs -->
-            <div id="tabs-container" class="flex flex-wrap justify-center space-x-1 sm:space-x-4 border-b border-gray-800 md:border-none pb-2 md:pb-0">
-                <button onclick="switchTab(0)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="0">About</button>
-                <button onclick="switchTab(1)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="1">Skills</button>
-                <button onclick="switchTab(2)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="2">Education</button>
-                <button onclick="switchTab(3)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="3">Certificates</button>
-                <button onclick="switchTab(4)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="4">Projects</button>
-                <button onclick="switchTab(5)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="5">Services</button>
-                <button onclick="switchTab(6)" class="tab-button px-3 py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-sm md:text-base" data-tab="6">Contact</button>
+            <div id="tabs-container" class="flex flex-wrap justify-center gap-1 sm:gap-2 border-b border-gray-800 md:border-none pb-2 md:pb-0 overflow-x-auto max-w-full">
+                <button onclick="switchTab(0)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="0">About</button>
+                <button onclick="switchTab(1)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="1">Skills</button>
+                <button onclick="switchTab(2)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="2">Education</button>
+                <button onclick="switchTab(3)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="3">Certificates</button>
+                <button onclick="switchTab(4)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="4">Projects</button>
+                <button onclick="switchTab(5)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="5">Services</button>
+                <button onclick="switchTab(6)" class="tab-button px-2.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 hover:text-white font-medium transition duration-300 opacity-60 text-xs sm:text-sm md:text-base whitespace-nowrap" data-tab="6">Contact</button>
             </div>
 
             <!-- the user must be able to request a pdf format cv in every tab -->
             <div class="flex items-center">
                 <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
-                   class="bg-lime-500 hover:bg-lime-400 text-black font-semibold px-4 py-2 rounded-lg text-sm transition shadow-md flex items-center">
+                   class="bg-lime-500 hover:bg-lime-400 text-black font-semibold px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition shadow-md flex items-center whitespace-nowrap">
                     <i class="fas fa-envelope mr-2"></i> Request CV (PDF)
                 </a>
             </div>
@@ -147,44 +148,44 @@
 
     <!-- --- PAGE 1: WELCOME PAGE --- -->
     <div id="page1" class="flex" style="display: flex;">
-        <div class="container mx-auto intro-card p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+        <div class="container mx-auto intro-card p-4 sm:p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-4xl w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-center text-center md:text-left">
                 <!-- Left Column: Image & PDF Request -->
                 <div class="md:col-span-1 flex flex-col items-center justify-center space-y-4">
-                    <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-48 h-48 border-4 border-lime-500 shadow-lg object-cover">
+                    <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-36 h-36 sm:w-48 sm:h-48 border-4 border-lime-500 shadow-lg object-cover">
                     
                     <!-- SECURE BUTTON -->
                     <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
-                       class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-sm transition flex items-center shadow-md">
+                       class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-xs sm:text-sm transition flex items-center shadow-md">
                         <i class="fas fa-envelope mr-2"></i> Request CV (PDF)
                     </a>
                     <!-- Secondary CTA: Direct LinkedIn Link -->
                     <a href="https://linkedin.com/in/rebone-motswana-844067202" target="_blank" rel="noopener noreferrer" 
-                       class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-lg transition duration-200">
+                       class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium px-5 py-2 rounded-lg text-xs sm:text-sm transition duration-200">
                         LinkedIn
                     </a>
                 </div>
                 
                 <!-- Right Column: Text Content -->
                 <div class="md:col-span-2 space-y-4">
-                    <h1 class="text-5xl font-extrabold text-white">REBONE MOTSWANA</h1>
-                    <span class="inline-block lime-bar px-3 py-1 text-black font-semibold uppercase tracking-widest text-sm rounded-full shadow-md">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white break-words">REBONE MOTSWANA</h1>
+                    <span class="inline-block lime-bar px-3 py-1 text-black font-semibold uppercase tracking-widest text-xs sm:text-sm rounded-full shadow-md">
                         Software Engineer & Final-Year IT Student
                     </span>
                     
-                    <div class="pt-4">
-                        <h2 class="text-3xl font-bold text-lime-400 mb-2">ABOUT ME</h2>
-                        <p class="text-gray-300 leading-relaxed max-w-lg mx-auto md:mx-0">
+                    <div class="pt-2 sm:pt-4">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-lime-400 mb-2">ABOUT ME</h2>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-lg mx-auto md:mx-0">
                             Driven Software Engineer and Final-Year IT Student at North-West University (majoring in Computer Science & Information Systems), combining strong full-stack web development with core networking architecture and cybersecurity fundamentals.
                         </p>
                     </div>
 
                     <!-- Simulated Quick Info -->
-                    <div class="grid grid-cols-2 gap-4 text-center pt-6">
-                        <div class="p-3 lime-bar text-black rounded-lg font-semibold text-xs md:text-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-center pt-4 sm:pt-6">
+                        <div class="p-3 lime-bar text-black rounded-lg font-semibold text-xs sm:text-sm">
                             <i class="fas fa-code mr-1"></i> Full-Stack & Python/Java
                         </div>
-                        <div class="p-3 lime-bar text-black rounded-lg font-semibold text-xs md:text-sm">
+                        <div class="p-3 lime-bar text-black rounded-lg font-semibold text-xs sm:text-sm">
                             <i class="fas fa-shield-alt mr-1"></i> Cisco CCST Pathway
                         </div>
                     </div>
@@ -192,8 +193,8 @@
             </div>
 
             <!-- Page Navigation Button -->
-            <div class="text-center mt-12">
-                <button onclick="showPage(2)" class="bg-lime-500 text-gray-900 px-10 py-4 rounded-full font-bold text-xl hover:bg-lime-400 transition duration-300 shadow-lg card-hover-effect">
+            <div class="text-center mt-8 sm:mt-12">
+                <button onclick="showPage(2)" class="bg-lime-500 text-gray-900 px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-lg sm:text-xl hover:bg-lime-400 transition duration-300 shadow-lg card-hover-effect">
                     View Full CV <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
@@ -201,22 +202,22 @@
     </div>
 
     <!-- --- PAGE 2: MAIN CV CONTENT (TAB CONTAINER) --- -->
-    <div id="page2" class="min-h-screen py-10 px-4" style="display: none;">
+    <div id="page2" class="min-h-screen py-6 sm:py-10 px-3 sm:px-4" style="display: none;">
         <div class="container mx-auto max-w-6xl">
             
             <!-- Tab 0: About Me Section -->
             <div id="tab-about" class="tab-content active">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-user-tie mr-3"></i>About Me</h2>
-                    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10">
-                        <div class="lg:w-1/2 space-y-6 text-gray-300 text-lg leading-relaxed">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-user-tie mr-3"></i>About Me</h2>
+                    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-10">
+                        <div class="lg:w-1/2 space-y-4 sm:space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 Driven Software Engineer and Final-Year IT Student at North-West University (majoring in Computer Science & Information Systems), combining strong full-stack web development with core networking architecture and cybersecurity fundamentals.
                             </p>
                             <p>
                                 As the Lead Consultant at Optima IT Services (yet to be registered), I design full-stack web applications, automate workflows, and deliver tailored IT infrastructure solutions for clients. Alongside this, my role as a Student Assistant and Script Marker for CMPG 213 & CMPG 223 at NWU has strengthened my core skills in system design, code optimization, debugging, and explaining complex technical frameworks.
                             </p>
-                            <div class="border-l-4 border-lime-400 pl-4 space-y-2 text-gray-400">
+                            <div class="border-l-4 border-lime-400 pl-4 space-y-2 text-gray-400 text-sm sm:text-base">
                                 <p class="text-white font-semibold">⚡ How I Approach Software Engineering:</p>
                                 <p><strong>Business-First Problem Solving:</strong> Analyzing functional and technical requirements before writing code.</p>
                                 <p><strong>Clean & Scalable Architecture:</strong> Applying OOP, MVC, RESTful API design, and strict version control (Git/GitHub) workflows.</p>
@@ -232,13 +233,13 @@
 
             <!-- Tab 1: Skills Section -->
             <div id="tab-skills" class="tab-content">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-laptop-code mr-3"></i>My Skill Set</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-laptop-code mr-3"></i>My Skill Set</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         <!-- Technical Skills -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                            <h3 class="text-2xl font-semibold mb-4 text-lime-400"><i class="fas fa-code mr-2"></i>Technical</h3>
-                            <ul class="list-disc list-inside text-gray-300 space-y-3">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect">
+                            <h3 class="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-lime-400"><i class="fas fa-code mr-2"></i>Technical</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 sm:space-y-3 text-sm sm:text-base">
                                 <li>Python, Java, HTML5, CSS3, C#, SQL, C++</li>
                                 <li>JavaScript, TypeScript, React.js, Tailwind CSS, Node.js, Vite</li>
                                 <li>Git, GitHub, VS Code, Linux, Cisco Packet Tracer</li>
@@ -246,9 +247,9 @@
                             </ul>
                         </div>
                         <!-- Soft Skills -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                            <h3 class="text-2xl font-semibold mb-4 text-lime-400"><i class="fas fa-users mr-2"></i>Interpersonal</h3>
-                            <ul class="list-disc list-inside text-gray-300 space-y-3">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect">
+                            <h3 class="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-lime-400"><i class="fas fa-users mr-2"></i>Interpersonal</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 sm:space-y-3 text-sm sm:text-base">
                                 <li>Attention to detail</li>
                                 <li>Time management & autonomy</li>
                                 <li>Professional communication</li>
@@ -256,9 +257,9 @@
                             </ul>
                         </div>
                         <!-- Core Competencies -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                            <h3 class="text-2xl font-semibold mb-4 text-lime-400"><i class="fas fa-lightbulb mr-2"></i>Competencies</h3>
-                            <ul class="list-disc list-inside text-gray-300 space-y-3">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect">
+                            <h3 class="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-lime-400"><i class="fas fa-lightbulb mr-2"></i>Competencies</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 sm:space-y-3 text-sm sm:text-base">
                                 <li>English & Setswana (Fluent)</li>
                                 <li>Network Architecture & Protocols</li>
                                 <li>Cybersecurity Fundamentals (CCST Track)</li>
@@ -271,31 +272,31 @@
 
             <!-- Tab 2: Education Section -->
             <div id="tab-education" class="tab-content">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-graduation-cap mr-3"></i>Education</h2>
-                    <div class="space-y-8">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-graduation-cap mr-3"></i>Education</h2>
+                    <div class="space-y-6 sm:space-y-8">
                         <!-- North-West University -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex flex-col md:flex-row items-start gap-4">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col md:flex-row items-start gap-4">
                             <div class="md:w-1/4 text-gray-400">
-                                <p class="font-bold text-lime-400">2023 - 2026 (Final Year)</p>
-                                <p class="text-sm">Vanderbijlpark, GP</p>
+                                <p class="font-bold text-lime-400 text-sm sm:text-base">2023 - 2026 (Final Year)</p>
+                                <p class="text-xs sm:text-sm">Vanderbijlpark, GP</p>
                             </div>
                             <div class="md:w-3/4">
-                                <h3 class="text-2xl font-bold text-white">Bachelor of Science in Information Technology</h3>
-                                <p class="text-xl font-semibold text-gray-400 mb-2">North-West University (Majoring in Computer Science & Information Systems)</p>
-                                <p class="text-gray-300">Coursework Highlights: Data Structures & Algorithms, Software Development, Web Programming, Databases, Systems Design & Analysis, Network Architecture.</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white">Bachelor of Science in Information Technology</h3>
+                                <p class="text-lg sm:text-xl font-semibold text-gray-400 mb-2">North-West University (Majoring in Computer Science & Information Systems)</p>
+                                <p class="text-gray-300 text-sm sm:text-base">Coursework Highlights: Data Structures & Algorithms, Software Development, Web Programming, Databases, Systems Design & Analysis, Network Architecture.</p>
                             </div>
                         </div>
                         <!-- Letsatsing Science Secondary School -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex flex-col md:flex-row items-start gap-4">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col md:flex-row items-start gap-4">
                             <div class="md:w-1/4 text-gray-400">
-                                <p class="font-bold text-lime-400">2021</p>
-                                <p class="text-sm">Mmabatho, NW</p>
+                                <p class="font-bold text-lime-400 text-sm sm:text-base">2021</p>
+                                <p class="text-xs sm:text-sm">Mmabatho, NW</p>
                             </div>
                             <div class="md:w-3/4">
-                                <h3 class="text-2xl font-bold text-white">National Senior Certificate</h3>
-                                <p class="text-xl font-semibold text-gray-400 mb-2">Letsatsing Science Secondary School</p>
-                                <p class="text-gray-300">Subjects: English, Setswana, Mathematics, Physical Science, Life Science, Geography, Life Orientation.</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white">National Senior Certificate</h3>
+                                <p class="text-lg sm:text-xl font-semibold text-gray-400 mb-2">Letsatsing Science Secondary School</p>
+                                <p class="text-gray-300 text-sm sm:text-base">Subjects: English, Setswana, Mathematics, Physical Science, Life Science, Geography, Life Orientation.</p>
                             </div>
                         </div>
                     </div>
@@ -304,47 +305,47 @@
 
             <!-- Tab 3: Training & Certifications Section -->
             <div id="tab-certifications" class="tab-content">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-certificate mr-3"></i>Certifications</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex items-center space-x-4">
-                            <div class="bg-blue-950/40 text-blue-400 p-4 rounded-full text-3xl border border-blue-900 flex items-center justify-center w-16 h-16">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-certificate mr-3"></i>Certifications</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex items-center space-x-4">
+                            <div class="bg-blue-950/40 text-blue-400 p-3 sm:p-4 rounded-full text-2xl sm:text-3xl border border-blue-900 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                                 <i class="fas fa-network-wired"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white">Networking Basics</h3>
-                                <p class="text-lime-400 font-semibold">Cisco Networking Academy</p>
-                                <p class="text-sm text-gray-500">Issued Oct 2026</p>
+                                <h3 class="text-lg sm:text-xl font-bold text-white">Networking Basics</h3>
+                                <p class="text-lime-400 font-semibold text-sm sm:text-base">Cisco Networking Academy</p>
+                                <p class="text-xs sm:text-sm text-gray-500">Issued Oct 2026</p>
                             </div>
                         </div>
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex items-center space-x-4">
-                            <div class="bg-emerald-950/40 text-emerald-400 p-4 rounded-full text-3xl border border-emerald-900 flex items-center justify-center w-16 h-16">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex items-center space-x-4">
+                            <div class="bg-emerald-950/40 text-emerald-400 p-3 sm:p-4 rounded-full text-2xl sm:text-3xl border border-emerald-900 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white">Introduction to Cybersecurity</h3>
-                                <p class="text-lime-400 font-semibold">Cisco Networking Academy</p>
-                                <p class="text-sm text-gray-500">Issued Sep 2026</p>
+                                <h3 class="text-lg sm:text-xl font-bold text-white">Introduction to Cybersecurity</h3>
+                                <p class="text-lime-400 font-semibold text-sm sm:text-base">Cisco Networking Academy</p>
+                                <p class="text-xs sm:text-sm text-gray-500">Issued Sep 2026</p>
                             </div>
                         </div>
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex items-center space-x-4">
-                            <div class="bg-red-950/40 text-red-400 p-4 rounded-full text-3xl border border-red-900 flex items-center justify-center w-16 h-16">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex items-center space-x-4">
+                            <div class="bg-red-950/40 text-red-400 p-3 sm:p-4 rounded-full text-2xl sm:text-3xl border border-red-900 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                                 <i class="fas fa-user-md"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white">First Aid Training (Level 1)</h3>
-                                <p class="text-lime-400 font-semibold">Emfuleni Fire Fighting Department</p>
-                                <p class="text-sm text-gray-500">2025</p>
+                                <h3 class="text-lg sm:text-xl font-bold text-white">First Aid Training (Level 1)</h3>
+                                <p class="text-lime-400 font-semibold text-sm sm:text-base">Emfuleni Fire Fighting Department</p>
+                                <p class="text-xs sm:text-sm text-gray-500">2025</p>
                             </div>
                         </div>
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex items-center space-x-4">
-                            <div class="bg-orange-950/40 text-orange-400 p-4 rounded-full text-3xl border border-orange-900 flex items-center justify-center w-16 h-16">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex items-center space-x-4">
+                            <div class="bg-orange-950/40 text-orange-400 p-3 sm:p-4 rounded-full text-2xl sm:text-3xl border border-orange-900 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                                 <i class="fas fa-fire-extinguisher"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white">Basic Fire Fighting</h3>
-                                <p class="text-lime-400 font-semibold">Emfuleni Fire Fighting Department</p>
-                                <p class="text-sm text-gray-500">2025</p>
+                                <h3 class="text-lg sm:text-xl font-bold text-white">Basic Fire Fighting</h3>
+                                <p class="text-lime-400 font-semibold text-sm sm:text-base">Emfuleni Fire Fighting Department</p>
+                                <p class="text-xs sm:text-sm text-gray-500">2025</p>
                             </div>
                         </div>
                     </div>
@@ -353,17 +354,19 @@
 
             <!-- Tab 4: Projects Section -->
             <div id="tab-projects" class="tab-content">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-project-diagram mr-3"></i>Featured Projects</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-project-diagram mr-3"></i>Featured Projects</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                         <!-- Project: CMPG315 Corporate Office Network Simulation -->
-                            <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                                <img src="https://placehold.co/400x250/090d16/ffffff?text=Cisco+Packet+Tracer" alt="Network simulation thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
-                                <h3 class="text-xl font-bold text-lime-400 mb-2">Corporate Office Network Design</h3>
-                                <p class="text-gray-400 text-sm mb-4">
-                                    Designed a complete single-building enterprise office network in Cisco Packet Tracer, featuring departmental VLAN isolation, subnetting, guest/staff Wi-Fi, and centralized server room services.
-                                </p>
-                                <div class="flex flex-wrap gap-2">
+                            <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                                <div>
+                                    <img src="https://placehold.co/400x250/090d16/ffffff?text=Cisco+Packet+Tracer" alt="Network simulation thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
+                                    <h3 class="text-lg sm:text-xl font-bold text-lime-400 mb-2">Corporate Office Network Design</h3>
+                                    <p class="text-gray-400 text-xs sm:text-sm mb-4">
+                                        Designed a complete single-building enterprise office network in Cisco Packet Tracer, featuring departmental VLAN isolation, subnetting, guest/staff Wi-Fi, and centralized server room services.
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 pt-2">
                                     <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">Cisco Packet Tracer</span>
                                     <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">VLANs & Subnetting</span>
                                     <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">DHCP / DNS / NAT</span>
@@ -371,19 +374,27 @@
                             </div>
                         
                         <!-- Project: MongoDB BI Optimization -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                            <img src="https://placehold.co/400x250/090d16/ffffff?text=MongoDB+BI+Pipeline" alt="MongoDB architecture project thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
-                            <h3 class="text-xl font-bold text-lime-400 mb-2">BI Data Migration & Optimization</h3>
-                            <p class="text-gray-400 text-sm mb-4">Migrated complex relational schemas to read-optimized MongoDB structures. Drastically sped up query response rates.</p>
-                            <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">MongoDB & Python</span>
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                            <div>
+                                <img src="https://placehold.co/400x250/090d16/ffffff?text=MongoDB+BI+Pipeline" alt="MongoDB architecture project thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
+                                <h3 class="text-lg sm:text-xl font-bold text-lime-400 mb-2">BI Data Migration & Optimization</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm mb-4">Migrated complex relational schemas to read-optimized MongoDB structures. Drastically sped up query response rates.</p>
+                            </div>
+                            <div class="pt-2">
+                                <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">MongoDB & Python</span>
+                            </div>
                         </div>
 
                         <!-- Project: Clinical Decision Support System -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect">
-                            <img src="https://placehold.co/400x250/090d16/ffffff?text=CDSS+Web+App" alt="Healthcare portal thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
-                            <h3 class="text-xl font-bold text-lime-400 mb-2">Clinical Decision Support System (CDSS)</h3>
-                            <p class="text-gray-400 text-sm mb-4">A C# and MySQL-driven doctor/patient platform to empower clinics with real-time symptom tracking.</p>
-                            <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">C# & MySQL</span>
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                            <div>
+                                <img src="https://placehold.co/400x250/090d16/ffffff?text=CDSS+Web+App" alt="Healthcare portal thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
+                                <h3 class="text-lg sm:text-xl font-bold text-lime-400 mb-2">Clinical Decision Support System (CDSS)</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm mb-4">A C# and MySQL-driven doctor/patient platform to empower clinics with real-time symptom tracking.</p>
+                            </div>
+                            <div class="pt-2">
+                                <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">C# & MySQL</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -391,45 +402,45 @@
 
             <!-- Tab 5: Services Section -->
             <div id="tab-services" class="tab-content">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-briefcase mr-3"></i>Services I Offer</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-briefcase mr-3"></i>Services I Offer</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         <!-- Service 1 -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
                             <div>
-                                <div class="text-lime-400 text-4xl mb-4"><i class="fas fa-tools"></i></div>
-                                <h3 class="text-2xl font-bold text-white mb-2">Computer Troubleshooting</h3>
-                                <p class="text-gray-400 mb-6">Expert hardware diagnostics, software conflict resolution, performance optimization, and general system cleanup to get your machine running as good as new.</p>
+                                <div class="text-lime-400 text-3xl sm:text-4xl mb-4"><i class="fas fa-tools"></i></div>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Computer Troubleshooting</h3>
+                                <p class="text-gray-400 text-sm sm:text-base mb-6">Expert hardware diagnostics, software conflict resolution, performance optimization, and general system cleanup to get your machine running as good as new.</p>
                             </div>
                             <div class="border-t border-gray-800 pt-4 mt-auto">
                                 <span class="text-xs uppercase text-lime-400 font-semibold tracking-wider">Estimated Price</span>
-                                <p class="text-2xl font-bold text-white">R150 - R450 <span class="text-xs text-gray-500 font-normal">/ job</span></p>
+                                <p class="text-xl sm:text-2xl font-bold text-white">R150 - R450 <span class="text-xs text-gray-500 font-normal">/ job</span></p>
                             </div>
                         </div>
 
                         <!-- Service 2 -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
                             <div>
-                                <div class="text-lime-400 text-4xl mb-4"><i class="fas fa-compact-disc"></i></div>
-                                <h3 class="text-2xl font-bold text-white mb-2">OS Install & Repair</h3>
-                                <p class="text-gray-400 mb-6">Clean installations, dual-boot setups, registry repair, system restores, secure driver configurations, and critical security updates for Windows and Linux.</p>
+                                <div class="text-lime-400 text-3xl sm:text-4xl mb-4"><i class="fas fa-compact-disc"></i></div>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">OS Install & Repair</h3>
+                                <p class="text-gray-400 text-sm sm:text-base mb-6">Clean installations, dual-boot setups, registry repair, system restores, secure driver configurations, and critical security updates for Windows and Linux.</p>
                             </div>
                             <div class="border-t border-gray-800 pt-4 mt-auto">
                                 <span class="text-xs uppercase text-lime-400 font-semibold tracking-wider">Estimated Price</span>
-                                <p class="text-2xl font-bold text-white">R300 - R800 <span class="text-xs text-gray-500 font-normal">/ setup</span></p>
+                                <p class="text-xl sm:text-2xl font-bold text-white">R300 - R800 <span class="text-xs text-gray-500 font-normal">/ setup</span></p>
                             </div>
                         </div>
 
                         <!-- Service 3 -->
-                        <div class="bg-gray-950 border border-gray-800 p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
                             <div>
-                                <div class="text-lime-400 text-4xl mb-4"><i class="fas fa-project-diagram"></i></div>
-                                <h3 class="text-2xl font-bold text-white mb-2">Building Info Systems</h3>
-                                <p class="text-gray-400 mb-6">End-to-end database modelling, tailored local systems development, networking configuration, interface design, and custom business logic implementations.</p>
+                                <div class="text-lime-400 text-3xl sm:text-4xl mb-4"><i class="fas fa-project-diagram"></i></div>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Building Info Systems</h3>
+                                <p class="text-gray-400 text-sm sm:text-base mb-6">End-to-end database modelling, tailored local systems development, networking configuration, interface design, and custom business logic implementations.</p>
                             </div>
                             <div class="border-t border-gray-800 pt-4 mt-auto">
                                 <span class="text-xs uppercase text-lime-400 font-semibold tracking-wider">Estimated Price</span>
-                                <p class="text-2xl font-bold text-white">R5,000 - R15,000 <span class="text-xs text-gray-500 font-normal">/ system</span></p>
+                                <p class="text-xl sm:text-2xl font-bold text-white">R5,000 - R15,000 <span class="text-xs text-gray-500 font-normal">/ system</span></p>
                             </div>
                         </div>
                     </div>
@@ -438,37 +449,37 @@
 
             <!-- Tab 6: Contact Section -->
             <div id="tab-contact" class="tab-content">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-paper-plane mr-3"></i>Get in Touch</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-paper-plane mr-3"></i>Get in Touch</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
                         <div>
-                            <p class="text-lg text-gray-300 mb-6">Have an exciting development project, a computer problem, or want to build a system? I'm always ready to collaborate! Drop me a message.</p>
+                            <p class="text-base sm:text-lg text-gray-300 mb-6">Have an exciting development project, a computer problem, or want to build a system? I'm always ready to collaborate! Drop me a message.</p>
                             <div class="space-y-4">
-                                <a href="mailto:rebonemotswana7@gmail.com" class="flex items-center space-x-3 text-gray-400 hover:text-lime-400 transition">
-                                    <i class="fas fa-envelope text-xl"></i> <span>rebonemotswana7@gmail.com</span>
+                                <a href="mailto:rebonemotswana7@gmail.com" class="flex items-center space-x-3 text-gray-400 hover:text-lime-400 transition text-sm sm:text-base break-all">
+                                    <i class="fas fa-envelope text-lg sm:text-xl flex-shrink-0"></i> <span>rebonemotswana7@gmail.com</span>
                                 </a>
-                                <a href="tel:+27818985610" class="flex items-center space-x-3 text-gray-400 hover:text-lime-400 transition">
-                                    <i class="fas fa-phone text-xl"></i> <span>+27 81 898 5610</span>
+                                <a href="tel:+27818985610" class="flex items-center space-x-3 text-gray-400 hover:text-lime-400 transition text-sm sm:text-base">
+                                    <i class="fas fa-phone text-lg sm:text-xl flex-shrink-0"></i> <span>+27 81 898 5610</span>
                                 </a>
                             </div>
                         </div>
                         
                         <form id="contactForm" action="https://formspree.io/f/movlpynl" method="POST" class="space-y-4">
-                            <input type="text" name="name" placeholder="Your Name" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white transition" required>
-                            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white transition" required>
-                            <textarea name="message" rows="4" placeholder="How can I assist you?" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white transition" required></textarea>
-                            <button type="submit" class="bg-lime-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-lime-400 transition duration-300 w-full">Send Message</button>
+                            <input type="text" name="name" placeholder="Your Name" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white transition text-sm sm:text-base" required>
+                            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white transition text-sm sm:text-base" required>
+                            <textarea name="message" rows="4" placeholder="How can I assist you?" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white transition text-sm sm:text-base" required></textarea>
+                            <button type="submit" class="bg-lime-500 text-black px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-lime-400 transition duration-300 w-full text-sm sm:text-base">Send Message</button>
                         </form>
                     </div>
                 </div>
             </div>
 
             <!-- Global Actions at bottom of CV -->
-            <div class="flex justify-between items-center mt-12 px-4">
-                <button onclick="showPage(1)" class="bg-gray-900 border border-gray-800 text-gray-400 px-6 py-3 rounded-full font-bold hover:text-white hover:border-lime-500 transition duration-300">
+            <div class="flex flex-col sm:flex-row justify-between items-center mt-8 sm:mt-12 px-4 gap-4">
+                <button onclick="showPage(1)" class="bg-gray-900 border border-gray-800 text-gray-400 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold hover:text-white hover:border-lime-500 transition duration-300 text-sm sm:text-base w-full sm:w-auto">
                     <i class="fas fa-arrow-left mr-2"></i> Welcome Page
                 </button>
-                <div class="text-xs text-gray-600">
+                <div class="text-xs text-gray-600 text-center sm:text-right">
                     Use Mouse Wheel or Trackpad to change pages
                 </div>
             </div>
@@ -477,6 +488,7 @@
 
     <!-- JavaScript for Page Switching, Tab Handling, and Wheel Scrolling -->
     <script>
+        // Store element references for view switching
         const page1 = document.getElementById('page1');
         const page2 = document.getElementById('page2');
         const globalNav = document.getElementById('global-nav');
@@ -488,6 +500,7 @@
         // Disable aggressive wheel scrolling triggers while active
         let isTransitioning = false;
 
+        // Switches between the welcome page and main CV tabs view
         function showPage(pageNumber) {
             if (pageNumber === 1) {
                 // Hard reset the layouts on the elements directly to avoid specificity issues
@@ -504,6 +517,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Toggles active content tab and updates navigation highlighting
         function switchTab(index) {
             if (index < 0 || index >= totalTabs) return;
             currentTabIdx = index;
@@ -557,6 +571,7 @@
             }
         });
 
+        // Prevents rapid double-triggering during slide transitions
         function preventDoubleTrigger() {
             isTransitioning = true;
             setTimeout(() => {
