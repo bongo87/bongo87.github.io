@@ -1,4 +1,4 @@
-<!-- Vitrtual Cv (Portfolio) -->
+<!-- Virtual Cv (Portfolio) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,10 +138,10 @@
 
             <!-- the user must be able to request a pdf format cv in every tab -->
             <div class="flex items-center">
-                <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
-                   class="bg-lime-500 hover:bg-lime-400 text-black font-semibold px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition shadow-md flex items-center whitespace-nowrap">
+                <button onclick="openCvRequestModal()" 
+                   class="bg-lime-500 hover:bg-lime-400 text-black font-semibold px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition shadow-md flex items-center whitespace-nowrap cursor-pointer">
                     <i class="fas fa-envelope mr-2"></i> Request CV (PDF)
-                </a>
+                </button>
             </div>
         </div>
     </nav>
@@ -155,10 +155,10 @@
                     <img src="https://github.com/bongo87/bongo87.github.io/blob/main/WhatsApp%20Image%202025-08-08%20at%2006.50.45.jpeg?raw=true" alt="Profile Picture" class="rounded-full w-36 h-36 sm:w-48 sm:h-48 border-4 border-lime-500 shadow-lg object-cover">
                     
                     <!-- SECURE BUTTON -->
-                    <a href="mailto:Rebonemotswana7@gmail.com?subject=Request%20for%20Full%20CV%20-%20[Company%20Name]&body=Hi%20Rebone,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20full%20CV.%0A%0ABest%20regards," 
-                       class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-xs sm:text-sm transition flex items-center shadow-md">
+                    <button onclick="openCvRequestModal()" 
+                       class="bg-transparent border border-lime-500 text-lime-400 hover:bg-lime-500 hover:text-black font-semibold px-4 py-2 rounded-lg text-xs sm:text-sm transition flex items-center shadow-md cursor-pointer">
                         <i class="fas fa-envelope mr-2"></i> Request CV (PDF)
-                    </a>
+                    </button>
                     <!-- Secondary CTA: Direct LinkedIn Link -->
                     <a href="https://linkedin.com/in/rebone-motswana-844067202" target="_blank" rel="noopener noreferrer" 
                        class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium px-5 py-2 rounded-lg text-xs sm:text-sm transition duration-200">
@@ -507,12 +507,51 @@
         </div>
     </div>
 
+    <!-- CV Request Modal -->
+    <div id="cvModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" style="display: none;">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative">
+            <button onclick="closeCvRequestModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2"><i class="fas fa-file-pdf text-lime-400 mr-2"></i> Request CV (PDF)</h3>
+            <p class="text-gray-400 text-xs sm:text-sm mb-6">Please provide your details below so I can send the official PDF CV directly to your inbox or handle your request promptly.</p>
+            
+            <form id="cvRequestForm" action="https://formspree.io/f/movlpynl" method="POST" class="space-y-4" onsubmit="handleCvSubmit(event)">
+                <!-- Hidden subject field for Formspree to categorize -->
+                <input type="hidden" name="_subject" value="New CV Request from Portfolio">
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">Your Name / Company</label>
+                    <input type="text" name="name" placeholder="e.g. John Doe / Tech Corp" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white text-sm" required>
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">Your Email Address</label>
+                    <input type="email" name="email" placeholder="name@company.com" class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white text-sm" required>
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">Message / Additional Note (Optional)</label>
+                    <textarea name="message" rows="3" placeholder="I'd like to request your full CV for a Software Engineer position..." class="w-full p-3 bg-gray-950 border border-gray-800 rounded-md focus:ring-lime-400 focus:border-lime-400 text-white text-sm"></textarea>
+                </div>
+                <button type="submit" class="bg-lime-500 hover:bg-lime-400 text-black font-semibold py-3 px-6 rounded-lg w-full transition text-sm">
+                    Submit Request
+                </button>
+            </form>
+
+            <div id="cvSuccessMessage" class="hidden text-center py-8 space-y-3">
+                <i class="fas fa-check-circle text-lime-400 text-5xl"></i>
+                <h4 class="text-lg font-bold text-white">Request Sent Successfully!</h4>
+                <p class="text-gray-400 text-xs">Thank you for your interest. I will review your request and send the CV shortly.</p>
+                <button onclick="closeCvRequestModal()" class="mt-4 bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-lg text-xs">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript for Page Switching, Tab Handling, and Wheel Scrolling -->
     <script>
         // Store element references for view switching
         const page1 = document.getElementById('page1');
         const page2 = document.getElementById('page2');
         const globalNav = document.getElementById('global-nav');
+        const cvModal = document.getElementById('cvModal');
         
         let currentTabIdx = 0;
         const totalTabs = 7; // About, Skills, Education, Certificates, Projects, Services, Contact
@@ -520,6 +559,42 @@
         
         // Disable aggressive wheel scrolling triggers while active
         let isTransitioning = false;
+
+        // Modal control functions
+        function openCvRequestModal() {
+            cvModal.style.setProperty('display', 'flex', 'important');
+            document.getElementById('cvRequestForm').style.display = 'block';
+            document.getElementById('cvSuccessMessage').classList.add('hidden');
+            document.getElementById('cvRequestForm').reset();
+        }
+
+        function closeCvRequestModal() {
+            cvModal.style.setProperty('display', 'none', 'important');
+        }
+
+        // Handle Formspree AJAX submission to provide smooth feedback without redirecting page
+        function handleCvSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('cvSuccessMessage').classList.remove('hidden');
+                } else {
+                    alert('There was a problem sending your request. Please try emailing directly at rebonemotswana7@gmail.com');
+                }
+            }).catch(error => {
+                alert('Network error. Please try emailing directly at rebonemotswana7@gmail.com');
+            });
+        }
 
         // Switches between the welcome page and main CV tabs view
         function showPage(pageNumber) {
@@ -568,8 +643,8 @@
 
         // --- Mouse Wheel Transition System ---
         window.addEventListener('wheel', function(e) {
-            // Only scroll tabs if we are currently looking at Page 2 (the Full CV page)
-            if (page2.style.display === 'none' || isTransitioning) return;
+            // Only scroll tabs if we are currently looking at Page 2 (the Full CV page) or if modal is open
+            if (page2.style.display === 'none' || isTransitioning || cvModal.style.display === 'flex') return;
 
             // Calculate current scroll position
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
