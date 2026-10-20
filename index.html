@@ -1,4 +1,4 @@
-<!-- Programming a Vitrtual Cv (Portfolio) -->
+<!-- Vitrtual Cv (Portfolio) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +48,7 @@
         #page1 {
             background-color: #000000; /* Black background */
             min-height: 100vh;
-            /* Layout is now strictly handled by JS/Tailwind to prevent overlap bugs */
+            /* Layout is  handled by JS/Tailwind to prevent overlap bugs */
             align-items: center;
             justify-content: center;
             padding: 1rem; /* Adjusted padding to fit mobile screens safely */
@@ -357,21 +357,42 @@
                 <div class="bg-gray-900 border border-gray-800 p-4 sm:p-8 rounded-2xl shadow-xl">
                     <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-10 text-lime-400 border-b border-gray-800 pb-4"><i class="fas fa-project-diagram mr-3"></i>Featured Projects</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                        <!-- Project: CMPG315 Corporate Office Network Simulation -->
-                            <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
-                                <div>
-                                    <img src="https://placehold.co/400x250/090d16/ffffff?text=Cisco+Packet+Tracer" alt="Network simulation thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
-                                    <h3 class="text-lg sm:text-xl font-bold text-lime-400 mb-2">Corporate Office Network Design</h3>
-                                    <p class="text-gray-400 text-xs sm:text-sm mb-4">
-                                        Designed a complete single-building enterprise office network in Cisco Packet Tracer, featuring departmental VLAN isolation, subnetting, guest/staff Wi-Fi, and centralized server room services.
-                                    </p>
-                                </div>
-                                <div class="flex flex-wrap gap-2 pt-2">
-                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">Cisco Packet Tracer</span>
-                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">VLANs & Subnetting</span>
-                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">DHCP / DNS / NAT</span>
-                                </div>
+                        <!-- Project: CMPG324 CPU Scheduling Simulator -->
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                            <div>
+                                <img src="https://placehold.co/400x250/090d16/ffffff?text=CPU+Scheduling+Simulator" alt="CPU Scheduling Simulator thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
+                                <h3 class="text-lg sm:text-xl font-bold text-lime-400 mb-2">CPU Scheduling Simulator (CMPG 324)</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm mb-4">
+                                    A web-based operating systems simulation tool modeling FCFS, SRTF, and Round Robin algorithms with interactive Gantt charts, real-time performance metrics, and batch study data comparisons.
+                                </p>
                             </div>
+                            <div>
+                                <div class="flex flex-wrap gap-2 pt-2 mb-4">
+                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">HTML5 / Tailwind</span>
+                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">JavaScript</span>
+                                    <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">Chart.js</span>
+                                </div>
+                                <a href="https://bongo87.github.io/OS_cpu_scheduling_simulator/" target="_blank" rel="noopener noreferrer" class="inline-block bg-lime-500 hover:bg-lime-400 text-black font-semibold px-4 py-2 rounded-lg text-xs sm:text-sm transition text-center w-full">
+                                    <i class="fas fa-external-link-alt mr-2"></i> View Live Simulator
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project: CMPG315 Corporate Office Network Simulation -->
+                        <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
+                            <div>
+                                <img src="https://placehold.co/400x250/090d16/ffffff?text=Cisco+Packet+Tracer" alt="Network simulation thumbnail" class="rounded-lg mb-4 w-full h-40 object-cover border border-gray-800">
+                                <h3 class="text-lg sm:text-xl font-bold text-lime-400 mb-2">Corporate Office Network Design</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm mb-4">
+                                    Designed a complete single-building enterprise office network in Cisco Packet Tracer, featuring departmental VLAN isolation, subnetting, guest/staff Wi-Fi, and centralized server room services.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">Cisco Packet Tracer</span>
+                                <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">VLANs & Subnetting</span>
+                                <span class="text-xs bg-lime-950/50 text-lime-400 border border-lime-800 px-2 py-1 rounded">DHCP / DNS / NAT</span>
+                            </div>
+                        </div>
                         
                         <!-- Project: MongoDB BI Optimization -->
                         <div class="bg-gray-950 border border-gray-800 p-5 sm:p-6 rounded-xl card-hover-effect flex flex-col justify-between">
